@@ -1,0 +1,1191 @@
+[gd_scene load_steps=12 format=3 uid="uid://7txxjg8t8btl"]
+
+[ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="1_ccogy"]
+[ext_resource type="PackedScene" uid="uid://bdv3cxkycntuu" path="res://Scenes/UI_Stats.tscn" id="1_k0fl3"]
+[ext_resource type="Texture2D" uid="uid://bjmiu6gpr7hy1" path="res://sprites/atk.png" id="3_giq74"]
+[ext_resource type="Texture2D" uid="uid://byh08xxv1b2fr" path="res://sprites/silueta.png" id="3_l4ebc"]
+[ext_resource type="Texture2D" uid="uid://rqejyquhttrm" path="res://sprites/hp.png" id="4_k0fl3"]
+[ext_resource type="Texture2D" uid="uid://cwdshfbke4bc4" path="res://sprites/itemplaceholder.png" id="5_k0fl3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mh4bm"]
+load_path = "res://.godot/imported/8x8grid.png-4ec1c76445ae8550dac4f277e6ff611a.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_y6bn4"]
+line_spacing = 0.0
+font = ExtResource("1_ccogy")
+font_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_424uw"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+corner_detail = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7p1y"]
+bg_color = Color(0.83033526, 0.83033514, 0.830335, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+corner_detail = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0fl3"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 2
+shadow_offset = Vector2(0, 2)
+anti_aliasing = false
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8992584, 0.8992584, 0.8992584, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(192, 88)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.165
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 104.0
+theme_override_constants/separation = 8
+
+[node name="ColorRect" parent="VBoxContainer" instance=ExtResource("1_k0fl3")]
+layout_mode = 2
+
+[node name="PlayerTeam" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PlayerTeam"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label0" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer/HBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "2"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/PlayerTeam/VBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_424uw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w7p1y")
+step = 10.0
+value = 30.0
+show_percentage = false
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "16"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PlayerTeam"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label0" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer2/HBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "2"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/PlayerTeam/VBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_424uw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w7p1y")
+step = 10.0
+value = 30.0
+show_percentage = false
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer2/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "16"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer2/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/PlayerTeam"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label0" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer3/HBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "2"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/PlayerTeam/VBoxContainer3"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_424uw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w7p1y")
+step = 10.0
+value = 30.0
+show_percentage = false
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer3"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer3/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "16"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer3/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/PlayerTeam"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer5"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label0" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer5/HBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "2"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/PlayerTeam/VBoxContainer5"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_424uw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w7p1y")
+step = 10.0
+value = 30.0
+show_percentage = false
+
+[node name="Container" type="Control" parent="VBoxContainer/PlayerTeam/VBoxContainer5"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer5/Container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_l4ebc")
+stretch_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer5"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer5/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_giq74")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer5/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "1"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer5/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_k0fl3")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer5/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "5"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/PlayerTeam"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer6"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer6/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label0" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer6/HBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "2"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer6/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_k0fl3")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/PlayerTeam/VBoxContainer6"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_424uw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w7p1y")
+step = 10.0
+value = 30.0
+show_percentage = false
+
+[node name="Container" type="Control" parent="VBoxContainer/PlayerTeam/VBoxContainer6"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer6/Container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_l4ebc")
+stretch_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PlayerTeam/VBoxContainer6"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer6/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_giq74")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer6/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "10"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PlayerTeam/VBoxContainer6/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_k0fl3")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerTeam/VBoxContainer6/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PlayerTeam"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_k0fl3")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerTeam/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PlayerTeam/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = -2
+theme_override_constants/paragraph_separation = -3
+theme_override_fonts/normal_font = ExtResource("1_ccogy")
+theme_override_font_sizes/normal_font_size = 8
+text = "Start of battle →
+Deal 4 damage to the lowest health enemy.
+Triggers 3 times."
+scroll_active = false
+
+[node name="Shop" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="PetShop" type="HBoxContainer" parent="VBoxContainer/Shop"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="PetBuy1" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy1"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy1"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy1/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "16"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy1/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PetBuy2" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy2/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "16"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy2/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PetBuy3" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "16"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PetBuy4" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy4"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy4"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2/TextureRect"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "16"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2/TextureRect2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.5
+offset_right = 5.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "50"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container" type="Container" parent="VBoxContainer/Shop"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ItemShop" type="HBoxContainer" parent="VBoxContainer/Shop"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Shop/ItemShop"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_k0fl3")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Shop/ItemShop"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="Container2" type="Container" parent="VBoxContainer/Shop"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+color = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[node name="Container3" type="Container" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+color = Color(0.62152386, 0.62152386, 0.6215238, 1)

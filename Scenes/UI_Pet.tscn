@@ -1,0 +1,169 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcx5wbef18ma4"]
+
+[ext_resource type="Script" uid="uid://bk62v7myw8fai" path="res://Scenes/ui_pet.gd" id="1_nku8d"]
+[ext_resource type="Texture2D" uid="uid://c4klpev7nl8xn" path="res://sprites/lvl.png" id="1_w7p1y"]
+[ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="2_w45pu"]
+[ext_resource type="Texture2D" uid="uid://b71tqpk8x7e0b" path="res://sprites/atktriangle.png" id="4_nku8d"]
+[ext_resource type="Texture2D" uid="uid://rqejyquhttrm" path="res://sprites/hp.png" id="4_w7p1y"]
+[ext_resource type="Texture2D" uid="uid://byh08xxv1b2fr" path="res://sprites/silueta.png" id="6_k2pe2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y6bn4"]
+line_spacing = 0.0
+font = ExtResource("2_w45pu")
+font_size = 8
+shadow_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_424uw"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+corner_detail = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7p1y"]
+bg_color = Color(0.18431373, 0.9254902, 0.07450981, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+corner_detail = 3
+anti_aliasing = false
+
+[node name="UI_Pet" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+script = ExtResource("1_nku8d")
+
+[node name="Top" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Level" type="TextureRect" parent="Top"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_w7p1y")
+expand_mode = 1
+
+[node name="LevelLabel" type="Label" parent="Top/Level"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "1"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item" type="TextureRect" parent="Top"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="XPBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_424uw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w7p1y")
+step = 10.0
+value = 30.0
+show_percentage = false
+
+[node name="SpriteContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite" type="Sprite2D" parent="SpriteContainer"]
+texture = ExtResource("6_k2pe2")
+centered = false
+
+[node name="Bottom" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Atk" type="TextureRect" parent="Bottom"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_nku8d")
+expand_mode = 1
+
+[node name="AtkLabel" type="Label" parent="Bottom/Atk"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "1"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HP" type="TextureRect" parent="Bottom"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_w7p1y")
+expand_mode = 1
+
+[node name="HPLabel" type="Label" parent="Bottom/HP"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "1"
+label_settings = SubResource("LabelSettings_y6bn4")
+horizontal_alignment = 1
+vertical_alignment = 1

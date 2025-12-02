@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ToyStats" load_steps=2 format=3 uid="uid://dmfivg27r8pjb"]
+
+[ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_7ugt4"]
+
+[resource]
+script = ExtResource("1_7ugt4")
+metadata/_custom_type_script = "uid://co38vrucneg53"

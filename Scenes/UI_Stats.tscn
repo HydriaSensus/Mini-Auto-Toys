@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdv3cxkycntuu"]
+
+[ext_resource type="Texture2D" uid="uid://cqapmelkd73sp" path="res://sprites/coin.png" id="1_ikpsm"]
+[ext_resource type="Texture2D" uid="uid://rqejyquhttrm" path="res://sprites/hp.png" id="2_enorc"]
+[ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="2_o7412"]
+[ext_resource type="Texture2D" uid="uid://c65411cnpsdcv" path="res://sprites/trophyicon.png" id="3_o7412"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l3mq7"]
+line_spacing = 0.0
+font = ExtResource("2_o7412")
+font_size = 7
+shadow_size = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3mq7"]
+
+[node name="UI_Stats" type="Control"]
+custom_minimum_size = Vector2(208, 8)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 208.0
+offset_bottom = 8.0
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 8.0
+theme_override_constants/separation = 0
+
+[node name="Coin" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("1_ikpsm")
+expand_mode = 1
+
+[node name="CoinLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+text = " 10"
+label_settings = SubResource("LabelSettings_l3mq7")
+vertical_alignment = 2
+
+[node name="HP" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_enorc")
+expand_mode = 1
+
+[node name="HP2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_enorc")
+expand_mode = 1
+
+[node name="HP3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_enorc")
+expand_mode = 1
+
+[node name="HP4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_enorc")
+expand_mode = 1
+
+[node name="HP5" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_enorc")
+expand_mode = 1
+
+[node name="Separator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l3mq7")
+
+[node name="Trophy" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_o7412")
+expand_mode = 1
+
+[node name="Trophy2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_o7412")
+expand_mode = 1
+
+[node name="Trophy3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_o7412")
+expand_mode = 1
+
+[node name="Trophy4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_o7412")
+expand_mode = 1
+
+[node name="Trophy5" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_o7412")
+expand_mode = 1
+
+[node name="Space" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l3mq7")
+
+[node name="TurnLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 8)
+layout_mode = 2
+text = "Turn 1"
+label_settings = SubResource("LabelSettings_l3mq7")
+vertical_alignment = 2
