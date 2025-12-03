@@ -10,7 +10,6 @@ extends VBoxContainer
 @onready var xp_bar: ProgressBar = $XPBar
 @onready var item_sprite: TextureRect = $Top/Item
 
-var is_enemy = false
 
 func _ready() -> void:
 	if toy:
@@ -20,8 +19,10 @@ func _ready() -> void:
 		level_label.text = str(toy.level)
 		xp_bar.value = toy.xp
 	#	item_sprite.texture =  item.sprite
-		if is_enemy == true:
-				spriteNode.flip_h = true
+
+func flip_sprite()->void:
+		spriteNode.flip_h =!spriteNode.flip_h
+
 
 #func _process(_delta: float) -> void:
 	#if sprite == null:

@@ -21,7 +21,11 @@ func fill_list(team) -> Array:
 	for child in team.get_children():
 		if child is VBoxContainer:
 			child.toy.ready()
-			list.push_back(child)
+			if team == player_team:
+				list.push_front(child)
+			elif team == enemy_team:
+				list.push_back(child)
+				child.flip_sprite()
 	return list
 
 func start_battle():
@@ -66,7 +70,7 @@ func _on_turn_timer_timeout() -> void:
 		enemy_list.pop_at(0).queue_free()
 		print("enemigo fuera de lista")
 	if player_list[0].toy.current_hp <= 0:
-		player_list[0].pop_at(0).queue_free()
+		player_list.pop_at(0).queue_free()
 		print("jugador fuera de lista")
 	resolve_turn()
 
