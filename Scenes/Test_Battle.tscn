@@ -36,6 +36,10 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_6gaiu")
 
+[node name="TurnTimer" type="Timer" parent="."]
+wait_time = 1.2999999999999998
+one_shot = true
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -108,3 +112,5 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 [node name="Enemy_Pet1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
 toy = ExtResource("6_jws7u")
+
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
