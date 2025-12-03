@@ -64,8 +64,10 @@ func resolve_turn()-> void:
 
 func _on_turn_timer_timeout() -> void:
 	print()
-	enemy_list[0].toy.hurt(player_list[0],player_list[0].toy.atk)
-	player_list[0].toy.hurt(enemy_list[0],enemy_list[0].toy.atk)
+	print(player_list[0].toy.name," attacks!")
+	enemy_list[0].toy.hurt(enemy_list[0],player_list[0].toy.atk)
+	print(enemy_list[0].toy.name," attacks!")
+	player_list[0].toy.hurt(player_list[0],enemy_list[0].toy.atk)
 	if enemy_list[0].toy.current_hp <=0:
 		enemy_list.pop_at(0).queue_free()
 		print("enemigo fuera de lista")
