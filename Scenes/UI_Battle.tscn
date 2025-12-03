@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://otxwn0mdhl5i"]
+[gd_scene load_steps=10 format=3 uid="uid://otxwn0mdhl5i"]
 
 [ext_resource type="Script" uid="uid://b4ey26yyf7ue0" path="res://Scenes/ui_battle.gd" id="1_n70mq"]
 [ext_resource type="Texture2D" uid="uid://inmca152t1bp" path="res://sprites/Game Boy Advance - Final Fantasy 1_ Dawn of Souls - Miscellaneous - Battle Backgrounds.png" id="1_orx44"]
 [ext_resource type="PackedScene" uid="uid://bdv3cxkycntuu" path="res://Scenes/UI_Stats.tscn" id="2_0dyg1"]
 [ext_resource type="PackedScene" uid="uid://bcx5wbef18ma4" path="res://Scenes/UI_Pet.tscn" id="3_v0hm8"]
-[ext_resource type="Texture2D" uid="uid://cwdshfbke4bc4" path="res://sprites/itemplaceholder.png" id="4_mbdtw"]
+[ext_resource type="Resource" uid="uid://dmfivg27r8pjb" path="res://Resources/Prueba.tres" id="5_mbdtw"]
+[ext_resource type="Resource" uid="uid://12q1io1l3qax" path="res://Resources/enemigo.tres" id="6_4pxfc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0hm8"]
 atlas = ExtResource("1_orx44")
@@ -72,29 +73,19 @@ theme_override_constants/separation = 8
 
 [node name="Player_Pet5" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
 layout_mode = 2
-itemSprite = ExtResource("4_mbdtw")
-level = 3
-xp = 100
-atk = 33
-hp = 50
 
 [node name="Player_Pet4" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
 layout_mode = 2
-level = 2
-atk = 28
-hp = 10
 
 [node name="Player_Pet3" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
 layout_mode = 2
-xp = 50
-atk = 2
-hp = 3
 
 [node name="Player_Pet2" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
 layout_mode = 2
 
 [node name="Player_Pet1" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
 layout_mode = 2
+toy = ExtResource("5_mbdtw")
 
 [node name="Player_Blank_Space" type="VSeparator" parent="VBoxContainer/PlayerTeam"]
 custom_minimum_size = Vector2(88, 40)
@@ -118,6 +109,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
 [node name="Enemy_Pet1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("3_v0hm8")]
 layout_mode = 2
+toy = ExtResource("6_4pxfc")
 
 [node name="Enemy_Pet2" parent="VBoxContainer/EnemyTeam" instance=ExtResource("3_v0hm8")]
 layout_mode = 2
