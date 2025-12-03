@@ -21,7 +21,7 @@ var current_hp:int = 0
 
 
 
-func _ready() -> void:
+func ready() -> void:
 	current_hp = hp
 
 func attack():
@@ -30,16 +30,18 @@ func attack():
 func hurt(damage):
 	current_hp -= damage
 	print(str(name," took ",damage," damage. HP left: ",current_hp))
-	if ability.trigger == ToyAbility.TriggerList.Hurted:
-		ability.effect()
+	if ability:
+		if ability.trigger == ToyAbility.TriggerList.Hurted:
+			ability.effect()
 	if current_hp <= 0:
 		faint()
 	
 func faint():
 	print(str(name," fainted"))
-	if ability.trigger == ToyAbility.TriggerList.Fainted:
-		ability.effect()
+	if ability:
+		if ability.trigger == ToyAbility.TriggerList.Fainted:
+			ability.effect()
 	fainted.emit()
-	
+
 func use_ability():
 	ability.effect()

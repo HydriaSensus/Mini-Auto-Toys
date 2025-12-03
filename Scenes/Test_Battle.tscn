@@ -1,24 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://otxwn0mdhl5i"]
+[gd_scene load_steps=12 format=3 uid="uid://byokweh306lna"]
 
-[ext_resource type="Script" uid="uid://b4ey26yyf7ue0" path="res://Scenes/ui_battle.gd" id="1_n70mq"]
-[ext_resource type="Texture2D" uid="uid://inmca152t1bp" path="res://sprites/Game Boy Advance - Final Fantasy 1_ Dawn of Souls - Miscellaneous - Battle Backgrounds.png" id="1_orx44"]
-[ext_resource type="PackedScene" uid="uid://bdv3cxkycntuu" path="res://Scenes/UI_Stats.tscn" id="2_0dyg1"]
-[ext_resource type="PackedScene" uid="uid://bcx5wbef18ma4" path="res://Scenes/UI_Pet.tscn" id="3_v0hm8"]
-[ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="5_sxe2h"]
-[ext_resource type="Resource" uid="uid://12q1io1l3qax" path="res://Resources/enemigo.tres" id="6_4pxfc"]
-[ext_resource type="Texture2D" uid="uid://crlcrhp7h24pe" path="res://sprites/Cleric.png" id="6_n70mq"]
+[ext_resource type="Script" uid="uid://dmhvj7nh2ivaa" path="res://Scenes/test_battle.gd" id="1_6gaiu"]
+[ext_resource type="Texture2D" uid="uid://inmca152t1bp" path="res://sprites/Game Boy Advance - Final Fantasy 1_ Dawn of Souls - Miscellaneous - Battle Backgrounds.png" id="2_6gaiu"]
+[ext_resource type="PackedScene" uid="uid://bdv3cxkycntuu" path="res://Scenes/UI_Stats.tscn" id="3_mqx8m"]
+[ext_resource type="PackedScene" uid="uid://bcx5wbef18ma4" path="res://Scenes/UI_Pet.tscn" id="4_0uy25"]
+[ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="5_mqx8m"]
+[ext_resource type="Texture2D" uid="uid://crlcrhp7h24pe" path="res://sprites/Cleric.png" id="6_0uy25"]
+[ext_resource type="Resource" uid="uid://12q1io1l3qax" path="res://Resources/enemigo.tres" id="6_jws7u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0hm8"]
-atlas = ExtResource("1_orx44")
+atlas = ExtResource("2_6gaiu")
 region = Rect2(250, 537, 240, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dyg1"]
 
-[sub_resource type="Resource" id="Resource_j3xy8"]
+[sub_resource type="Resource" id="Resource_6gaiu"]
 resource_local_to_scene = true
-script = ExtResource("5_sxe2h")
+script = ExtResource("5_mqx8m")
 name = "Cleric"
-sprite = ExtResource("6_n70mq")
+sprite = ExtResource("6_0uy25")
 atk = 5
 hp = 16
 metadata/_custom_type_script = "uid://co38vrucneg53"
@@ -34,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-script = ExtResource("1_n70mq")
+script = ExtResource("1_6gaiu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -67,7 +67,7 @@ offset_right = 104.0
 offset_bottom = 120.0
 theme_override_constants/separation = 8
 
-[node name="ColorRect2" parent="VBoxContainer" instance=ExtResource("2_0dyg1")]
+[node name="ColorRect2" parent="VBoxContainer" instance=ExtResource("3_mqx8m")]
 layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
@@ -81,21 +81,9 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_constants/separation = 8
 
-[node name="Player_Pet5" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
+[node name="Player_Pet1" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-
-[node name="Player_Pet4" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
-
-[node name="Player_Pet3" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
-
-[node name="Player_Pet2" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
-
-[node name="Player_Pet1" parent="VBoxContainer/PlayerTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
-toy = SubResource("Resource_j3xy8")
+toy = SubResource("Resource_6gaiu")
 
 [node name="Player_Blank_Space" type="VSeparator" parent="VBoxContainer/PlayerTeam"]
 custom_minimum_size = Vector2(88, 40)
@@ -117,18 +105,6 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
-[node name="Enemy_Pet1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("3_v0hm8")]
+[node name="Enemy_Pet1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = ExtResource("6_4pxfc")
-
-[node name="Enemy_Pet2" parent="VBoxContainer/EnemyTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
-
-[node name="Enemy_Pet3" parent="VBoxContainer/EnemyTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
-
-[node name="Enemy_Pet4" parent="VBoxContainer/EnemyTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
-
-[node name="Enemy_Pet5" parent="VBoxContainer/EnemyTeam" instance=ExtResource("3_v0hm8")]
-layout_mode = 2
+toy = ExtResource("6_jws7u")
