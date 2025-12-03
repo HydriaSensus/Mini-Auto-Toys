@@ -27,8 +27,9 @@ func ready() -> void:
 func attack():
 	attacked.emit(atk)
 
-func hurt(damage):
+func hurt(owner,damage):
 	current_hp -= damage
+	owner.hp_label.text = str(current_hp)
 	print(str(name," took ",damage," damage. HP left: ",current_hp))
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
