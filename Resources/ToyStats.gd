@@ -32,7 +32,7 @@ func hurt(damage):
 	print(str(name," took ",damage," damage. HP left: ",current_hp))
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
-			ability.effect()
+			ability.effect(name)
 	if current_hp <= 0:
 		faint()
 	
@@ -40,8 +40,8 @@ func faint():
 	print(str(name," fainted"))
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Fainted:
-			ability.effect()
+			ability.effect(name)
 	fainted.emit()
 
 func use_ability():
-	ability.effect()
+	ability.effect(name)

@@ -6,11 +6,10 @@ enum TriggerList {TurnEnded, BattleStarted, Hurted, Fainted, KnockOut, FriendSum
 @export var ability_limit:int = 0
 var ability_uses:int = 0
 
-func effect() -> void:
+func effect(name) -> void:
 	if ability_limit:
 		if ability_uses >= ability_limit:
 			print("Ability didn't activate due to limit")
 			return
 		ability_uses +=1
-	
-	print("Ability activated on ",trigger)
+	print(name,"Ability activated on ",TriggerList.find_key(trigger))

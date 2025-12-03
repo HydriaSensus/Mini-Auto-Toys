@@ -59,6 +59,7 @@ func resolve_turn()-> void:
 		#print("jugador fuera de lista")
 
 func _on_turn_timer_timeout() -> void:
+	print()
 	enemy_list[0].toy.hurt(player_list[0].toy.atk)
 	player_list[0].toy.hurt(enemy_list[0].toy.atk)
 	if enemy_list[0].toy.current_hp <=0:
