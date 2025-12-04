@@ -1,7 +1,8 @@
 extends Control
 
 @onready var enemy_team: HBoxContainer = $VBoxContainer/EnemyTeam
-@onready var player_team: HBoxContainer = $VBoxContainer/PlayerTeam
+#@onready var player_team: HBoxContainer = $VBoxContainer/PlayerTeam
+@onready var player_team: ReverseHBoxContainer = $VBoxContainer/PlayerTeam
 @onready var turn_timer: Timer = $TurnTimer
 const UI_PET = preload("uid://bcx5wbef18ma4")
 
@@ -24,7 +25,8 @@ func fill_list(team) -> Array:
 			connect_signals(child)
 			child.toy.ready()
 			if team == player_team:
-				list.push_front(child)
+				#list.push_front(child)
+				list.push_back(child)
 			elif team == enemy_team:
 				list.push_back(child)
 				child.flip_sprite()
