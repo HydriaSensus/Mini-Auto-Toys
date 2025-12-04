@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://7txxjg8t8btl"]
+[gd_scene load_steps=16 format=3 uid="uid://7txxjg8t8btl"]
 
 [ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="1_ccogy"]
 [ext_resource type="Script" uid="uid://doakdwj3fuhkh" path="res://Scenes/shop.gd" id="1_d7inu"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://byh08xxv1b2fr" path="res://sprites/silueta.png" id="3_l4ebc"]
 [ext_resource type="Texture2D" uid="uid://rqejyquhttrm" path="res://sprites/hp.png" id="4_k0fl3"]
 [ext_resource type="Texture2D" uid="uid://cwdshfbke4bc4" path="res://sprites/itemplaceholder.png" id="5_k0fl3"]
-[ext_resource type="StyleBox" uid="uid://bwt5swwobyubs" path="res://Scenes/Focus_on.tres" id="8_330eo"]
+[ext_resource type="StyleBox" uid="uid://b64nvevmuhvdb" path="res://Scenes/Empty.tres" id="8_330eo"]
+[ext_resource type="PackedScene" uid="uid://dxh28wb8h2s2r" path="res://Scenes/UI_BuyPet.tscn" id="10_mte4i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mh4bm"]
 load_path = "res://.godot/imported/8x8grid.png-4ec1c76445ae8550dac4f277e6ff611a.ctex"
@@ -65,6 +66,7 @@ size_flags_vertical = 6
 script = ExtResource("1_d7inu")
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
+z_index = -2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -779,380 +781,34 @@ scroll_active = false
 
 [node name="Shop" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
-
-[node name="PetShop" type="HBoxContainer" parent="VBoxContainer/Shop"]
-layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 8
 
-[node name="PetBuy1Container" type="PanelContainer" parent="VBoxContainer/Shop/PetShop"]
+[node name="BuyPet" parent="VBoxContainer/Shop" instance=ExtResource("10_mte4i")]
 layout_mode = 2
-focus_neighbor_right = NodePath("../PetBuy2Container")
-theme_override_styles/panel = ExtResource("8_330eo")
 
-[node name="PetBuy1" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy1Container"]
+[node name="BuyPet2" parent="VBoxContainer/Shop" instance=ExtResource("10_mte4i")]
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1"]
+[node name="BuyPet3" parent="VBoxContainer/Shop" instance=ExtResource("10_mte4i")]
 layout_mode = 2
-theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1/HBoxContainer"]
-custom_minimum_size = Vector2(8, 8)
+[node name="BuyPet4" parent="VBoxContainer/Shop" instance=ExtResource("10_mte4i")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1"]
+[node name="Container" type="VSeparator" parent="VBoxContainer/Shop"]
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
+theme_override_styles/separator = ExtResource("8_330eo")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1/HBoxContainer2/TextureRect"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "16"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy1Container/PetBuy1/HBoxContainer2/TextureRect2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "50"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PetBuy2Container" type="PanelContainer" parent="VBoxContainer/Shop/PetShop"]
-layout_mode = 2
-focus_neighbor_left = NodePath("../PetBuy1Container")
-
-[node name="PetBuy2" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy2Container"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2/HBoxContainer"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2/HBoxContainer2/TextureRect"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "16"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy2Container/PetBuy2/HBoxContainer2/TextureRect2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "50"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PetBuy3" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy3"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy3"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2/TextureRect"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "16"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy3/HBoxContainer2/TextureRect2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "50"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PetBuy4" type="VBoxContainer" parent="VBoxContainer/Shop/PetShop"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy4"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Shop/PetShop/PetBuy4"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label1" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2/TextureRect"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "16"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = SubResource("CompressedTexture2D_mh4bm")
-expand_mode = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/Shop/PetShop/PetBuy4/HBoxContainer2/TextureRect2"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -4.5
-offset_right = 5.0
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 4.5)
-text = "50"
-label_settings = SubResource("LabelSettings_y6bn4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Container" type="Container" parent="VBoxContainer/Shop"]
-layout_mode = 2
-size_flags_horizontal = 10
-
-[node name="ItemShop" type="HBoxContainer" parent="VBoxContainer/Shop"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Shop/ItemShop"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Shop"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/VBoxContainer"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -1160,7 +816,7 @@ size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_mh4bm")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/VBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -1168,13 +824,13 @@ size_flags_vertical = 4
 texture = ExtResource("5_k0fl3")
 expand_mode = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Shop/ItemShop"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Shop"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Shop/VBoxContainer2"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -1182,7 +838,7 @@ size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_mh4bm")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/ItemShop/VBoxContainer2"]
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Shop/VBoxContainer2"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -1190,10 +846,12 @@ size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_mh4bm")
 expand_mode = 1
 
-[node name="Container2" type="Container" parent="VBoxContainer/Shop"]
+[node name="Container2" type="VSeparator" parent="VBoxContainer/Shop"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+theme_override_styles/separator = ExtResource("8_330eo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -1211,8 +869,3 @@ size_flags_horizontal = 10
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
 color = Color(0.62152386, 0.62152386, 0.6215238, 1)
-
-[connection signal="focus_entered" from="VBoxContainer/Shop/PetShop/PetBuy1Container" to="." method="_on_pet_buy_1_container_focus_entered"]
-[connection signal="focus_exited" from="VBoxContainer/Shop/PetShop/PetBuy1Container" to="." method="_on_pet_buy_1_container_focus_exited"]
-[connection signal="focus_entered" from="VBoxContainer/Shop/PetShop/PetBuy2Container" to="." method="_on_pet_buy_2_container_focus_entered"]
-[connection signal="focus_exited" from="VBoxContainer/Shop/PetShop/PetBuy2Container" to="." method="_on_pet_buy_2_container_focus_exited"]

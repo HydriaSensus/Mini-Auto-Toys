@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxh28wb8h2s2r"]
+
+[ext_resource type="StyleBox" uid="uid://b64nvevmuhvdb" path="res://Scenes/Empty.tres" id="1_tftdv"]
+[ext_resource type="StyleBox" uid="uid://djvlnw0l8orms" path="res://Scenes/Pressed.tres" id="2_3yfu7"]
+[ext_resource type="StyleBox" uid="uid://bwt5swwobyubs" path="res://Scenes/Focus.tres" id="3_6khh3"]
+[ext_resource type="Script" uid="uid://cqbxutpap6cab" path="res://Scenes/ui_buy_pet.gd" id="4_2oxx3"]
+[ext_resource type="Texture2D" uid="uid://byh08xxv1b2fr" path="res://sprites/silueta.png" id="4_4jjpx"]
+[ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="4_dhvkf"]
+[ext_resource type="Texture2D" uid="uid://b71tqpk8x7e0b" path="res://sprites/atktriangle.png" id="8_l5lcc"]
+[ext_resource type="Texture2D" uid="uid://rqejyquhttrm" path="res://sprites/hp.png" id="9_t5tik"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mh4bm"]
+load_path = "res://.godot/imported/8x8grid.png-4ec1c76445ae8550dac4f277e6ff611a.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_qlun8"]
+line_spacing = 0.0
+font = ExtResource("4_dhvkf")
+font_size = 8
+shadow_size = 0
+
+[node name="BuyPet" type="Button"]
+custom_minimum_size = Vector2(16, 32)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("1_tftdv")
+theme_override_styles/pressed = ExtResource("2_3yfu7")
+theme_override_styles/focus = ExtResource("3_6khh3")
+toggle_mode = true
+button_mask = 0
+script = ExtResource("4_2oxx3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="TierTexture" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("CompressedTexture2D_mh4bm")
+expand_mode = 1
+
+[node name="SpriteContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite" type="Sprite2D" parent="VBoxContainer/SpriteContainer"]
+texture = ExtResource("4_4jjpx")
+centered = false
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AtkTexture" type="TextureRect" parent="VBoxContainer/Stats"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_l5lcc")
+expand_mode = 1
+
+[node name="AtkLabel" type="Label" parent="VBoxContainer/Stats/AtkTexture"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "1"
+label_settings = SubResource("LabelSettings_qlun8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPTexture" type="TextureRect" parent="VBoxContainer/Stats"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("9_t5tik")
+expand_mode = 1
+
+[node name="HPLabel" type="Label" parent="VBoxContainer/Stats/HPTexture"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4.5)
+text = "1"
+label_settings = SubResource("LabelSettings_qlun8")
+horizontal_alignment = 1
+vertical_alignment = 1
