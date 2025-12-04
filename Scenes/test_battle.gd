@@ -38,6 +38,7 @@ func _on_summon(pet,summoner_index)->void:
 	player_team.add_child(summon,true)
 	player_team.move_child(summon,summoner_index)
 	summon.toy = pet
+	summon._ready()
 
 
 func start_battle():
