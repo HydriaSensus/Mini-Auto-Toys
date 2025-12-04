@@ -14,6 +14,8 @@ extends Resource
 
 #@export var item: Item
 
+var pet_node:Node
+
 signal attacked(damage)
 signal fainted
 
@@ -23,6 +25,7 @@ var current_hp:int = 0
 
 func ready() -> void:
 	current_hp = hp
+	ability.pet_node=pet_node
 
 func attack():
 	attacked.emit(atk)

@@ -3,6 +3,7 @@ extends Control
 @onready var enemy_team: HBoxContainer = $VBoxContainer/EnemyTeam
 @onready var player_team: HBoxContainer = $VBoxContainer/PlayerTeam
 @onready var turn_timer: Timer = $TurnTimer
+const UI_PET = preload("uid://bcx5wbef18ma4")
 
 var player_list:Array
 var enemy_list:Array
@@ -21,12 +22,23 @@ func fill_list(team) -> Array:
 	for child in team.get_children():
 		if child is VBoxContainer:
 			child.toy.ready()
+			if child.toy.ability.has_signal("summon"):
+				child.toy.ability.connect("summon",_on_summon)
+				printerr("Señal summon conectada")
 			if team == player_team:
 				list.push_front(child)
 			elif team == enemy_team:
 				list.push_back(child)
 				child.flip_sprite()
 	return list
+
+func _on_summon(pet,summoner_index)->void:
+	var summon = UI_PET.instantiate()
+	player_list.insert(summoner_index,summon)
+	player_team.add_child(summon,true)
+	player_team.move_child(summon,summoner_index)
+	summon.toy = pet
+
 
 func start_battle():
 	print("Battle starts")

@@ -5,6 +5,7 @@ enum TriggerList {TurnEnded, BattleStarted, Hurted, Fainted, KnockOut, FriendSum
 @export var trigger: TriggerList
 @export var ability_limit:int = 0
 var ability_uses:int = 0
+var pet_node:Node
 
 func effect(name) -> void:
 	if ability_limit:
