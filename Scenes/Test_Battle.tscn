@@ -18,100 +18,100 @@ region = Rect2(250, 537, 240, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dyg1"]
 
-[sub_resource type="Resource" id="Resource_2mqp7"]
+[sub_resource type="Resource" id="Resource_jws7u"]
 resource_local_to_scene = true
 script = ExtResource("5_0uy25")
 trigger = 3
 metadata/_custom_type_script = "uid://dqt44o7ry2l3"
 
-[sub_resource type="Resource" id="Resource_5uxge"]
+[sub_resource type="Resource" id="Resource_2mqp7"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Soldier"
 sprite = ExtResource("7_mqx8m")
-ability = SubResource("Resource_2mqp7")
+ability = SubResource("Resource_jws7u")
 atk = 4
 hp = 11
 tier = 2
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_ddgd5"]
+[sub_resource type="Resource" id="Resource_5uxge"]
 resource_local_to_scene = true
 script = ExtResource("8_jws7u")
 trigger = 3
 metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
 
-[sub_resource type="Resource" id="Resource_8jt4i"]
+[sub_resource type="Resource" id="Resource_ddgd5"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Cricket"
-ability = SubResource("Resource_ddgd5")
+ability = SubResource("Resource_5uxge")
 hp = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_sss1k"]
+[sub_resource type="Resource" id="Resource_8jt4i"]
 resource_local_to_scene = true
 script = ExtResource("5_0uy25")
 trigger = 2
 metadata/_custom_type_script = "uid://dqt44o7ry2l3"
 
-[sub_resource type="Resource" id="Resource_yp3h7"]
+[sub_resource type="Resource" id="Resource_sss1k"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Cleric"
 sprite = ExtResource("6_0uy25")
-ability = SubResource("Resource_sss1k")
+ability = SubResource("Resource_8jt4i")
 atk = 5
 hp = 16
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mbdtw"]
 
-[sub_resource type="Resource" id="Resource_tw5w3"]
+[sub_resource type="Resource" id="Resource_yp3h7"]
 resource_local_to_scene = true
 script = ExtResource("5_0uy25")
 trigger = 3
 metadata/_custom_type_script = "uid://dqt44o7ry2l3"
 
-[sub_resource type="Resource" id="Resource_ctw87"]
+[sub_resource type="Resource" id="Resource_tw5w3"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Soldier"
 sprite = ExtResource("7_mqx8m")
-ability = SubResource("Resource_tw5w3")
+ability = SubResource("Resource_yp3h7")
 atk = 4
 hp = 11
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_p7pkm"]
+[sub_resource type="Resource" id="Resource_ctw87"]
 resource_local_to_scene = true
 script = ExtResource("5_0uy25")
 trigger = 3
 metadata/_custom_type_script = "uid://dqt44o7ry2l3"
 
-[sub_resource type="Resource" id="Resource_1lgi8"]
+[sub_resource type="Resource" id="Resource_p7pkm"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Soldier"
 sprite = ExtResource("9_0uy25")
-ability = SubResource("Resource_p7pkm")
+ability = SubResource("Resource_ctw87")
 atk = 4
 hp = 11
 tier = 2
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_skxg5"]
+[sub_resource type="Resource" id="Resource_1lgi8"]
 resource_local_to_scene = true
 script = ExtResource("5_0uy25")
 trigger = 3
 metadata/_custom_type_script = "uid://dqt44o7ry2l3"
 
-[sub_resource type="Resource" id="Resource_lv60c"]
+[sub_resource type="Resource" id="Resource_skxg5"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Soldier"
 sprite = ExtResource("10_slll7")
-ability = SubResource("Resource_skxg5")
+ability = SubResource("Resource_1lgi8")
 atk = 4
 hp = 11
 tier = 3
@@ -179,15 +179,15 @@ theme_override_constants/separation = 8
 
 [node name="Player_Pet3" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_5uxge")
+toy = SubResource("Resource_2mqp7")
 
 [node name="Player_Pet2" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_8jt4i")
+toy = SubResource("Resource_ddgd5")
 
 [node name="Player_Pet1" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_yp3h7")
+toy = SubResource("Resource_sss1k")
 
 [node name="Player_Blank_Space" type="VSeparator" parent="VBoxContainer/PlayerTeam"]
 custom_minimum_size = Vector2(88, 40)
@@ -211,14 +211,14 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
 [node name="Enemy_Pet1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_ctw87")
+toy = SubResource("Resource_tw5w3")
 
 [node name="Enemy_Pet2" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_1lgi8")
+toy = SubResource("Resource_p7pkm")
 
 [node name="Enemy_Pet3" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_lv60c")
+toy = SubResource("Resource_skxg5")
 
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

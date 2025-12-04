@@ -21,16 +21,21 @@ func fill_list(team) -> Array:
 	var list:Array
 	for child in team.get_children():
 		if child is VBoxContainer:
+			connect_signals(child)
 			child.toy.ready()
-			if child.toy.ability.has_signal("summon"):
-				child.toy.ability.connect("summon",_on_summon)
-				printerr("Señal summon conectada")
 			if team == player_team:
 				list.push_front(child)
 			elif team == enemy_team:
 				list.push_back(child)
 				child.flip_sprite()
 	return list
+
+func connect_signals(pet)->void:
+	#pet.toy.connect("attacked",_on_toy_attack)
+	#pet.toy.connect("fainted",_on_toy_fainted)
+	if pet.toy.ability.has_signal("summon"):
+		pet.toy.ability.connect("summon",_on_summon)
+		printerr(pet.toy.name,": Señal summon conectada")
 
 func _on_summon(pet,summoner_index)->void:
 	var summon = UI_PET.instantiate()
