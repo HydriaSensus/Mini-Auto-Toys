@@ -20,8 +20,9 @@ func _ready() -> void:
 
 func fill_list(team) -> Array:
 	var list:Array
-	for child in team.get_children():
-		if child is VBoxContainer:
+	for child:Node in team.get_children():
+		#if child is VBoxContainer:
+		if child.is_in_group("Toy"):
 			connect_signals(child)
 			child.toy.ready()
 			if team == player_team:

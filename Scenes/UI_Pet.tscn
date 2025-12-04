@@ -32,7 +32,7 @@ border_color = Color(0.2520276, 0.25202766, 0.25202763, 1)
 corner_detail = 3
 anti_aliasing = false
 
-[node name="UI_Pet" type="VBoxContainer"]
+[node name="UI_Pet" type="VBoxContainer" groups=["Toy"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
