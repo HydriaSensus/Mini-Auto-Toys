@@ -10,4 +10,5 @@ name = "Cleric"
 sprite = ExtResource("2_wmqq2")
 atk = 5
 hp = 16
+xp = 10
 metadata/_custom_type_script = "uid://co38vrucneg53"

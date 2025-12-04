@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcx5wbef18ma4"]
+[gd_scene load_steps=13 format=3 uid="uid://bcx5wbef18ma4"]
 
+[ext_resource type="StyleBox" uid="uid://b64nvevmuhvdb" path="res://Scenes/Empty.tres" id="1_22xfo"]
 [ext_resource type="Script" uid="uid://bk62v7myw8fai" path="res://Scenes/ui_pet.gd" id="1_nku8d"]
 [ext_resource type="Texture2D" uid="uid://c4klpev7nl8xn" path="res://sprites/lvl.png" id="1_w7p1y"]
+[ext_resource type="StyleBox" uid="uid://djvlnw0l8orms" path="res://Scenes/Pressed.tres" id="2_ugbat"]
 [ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="2_w45pu"]
+[ext_resource type="StyleBox" uid="uid://bwt5swwobyubs" path="res://Scenes/Focus.tres" id="3_n30jb"]
 [ext_resource type="Texture2D" uid="uid://b71tqpk8x7e0b" path="res://sprites/atktriangle.png" id="4_nku8d"]
 [ext_resource type="Texture2D" uid="uid://rqejyquhttrm" path="res://sprites/hp.png" id="4_w7p1y"]
 [ext_resource type="Texture2D" uid="uid://byh08xxv1b2fr" path="res://sprites/silueta.png" id="6_k2pe2"]
@@ -32,28 +35,37 @@ border_color = Color(0.2520276, 0.25202766, 0.25202763, 1)
 corner_detail = 3
 anti_aliasing = false
 
-[node name="UI_Pet" type="VBoxContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -20.0
-offset_right = 8.0
-offset_bottom = 20.0
+[node name="UI_Pet" type="Button"]
+custom_minimum_size = Vector2(16, 40)
+offset_right = 16.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("1_22xfo")
+theme_override_styles/pressed = ExtResource("2_ugbat")
+theme_override_styles/focus = ExtResource("3_n30jb")
+toggle_mode = true
+button_mask = 0
+script = ExtResource("1_nku8d")
+
+[node name="VBContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 0
-script = ExtResource("1_nku8d")
 
-[node name="Top" type="HBoxContainer" parent="."]
+[node name="Top" type="HBoxContainer" parent="VBContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Level" type="TextureRect" parent="Top"]
+[node name="Level" type="TextureRect" parent="VBContainer/Top"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -61,7 +73,7 @@ size_flags_vertical = 4
 texture = ExtResource("1_w7p1y")
 expand_mode = 1
 
-[node name="LevelLabel" type="Label" parent="Top/Level"]
+[node name="LevelLabel" type="Label" parent="VBContainer/Top/Level"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 1
 anchors_preset = 8
@@ -81,14 +93,14 @@ label_settings = SubResource("LabelSettings_y6bn4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Item" type="TextureRect" parent="Top"]
+[node name="ItemTexture" type="TextureRect" parent="VBContainer/Top"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 expand_mode = 1
 
-[node name="XPBar" type="ProgressBar" parent="."]
+[node name="XPBar" type="ProgressBar" parent="VBContainer"]
 custom_minimum_size = Vector2(16, 8)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -98,21 +110,21 @@ step = 10.0
 value = 30.0
 show_percentage = false
 
-[node name="SpriteContainer" type="CenterContainer" parent="."]
+[node name="SpriteContainer" type="CenterContainer" parent="VBContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Sprite" type="Sprite2D" parent="SpriteContainer"]
+[node name="Sprite" type="Sprite2D" parent="VBContainer/SpriteContainer"]
 texture = ExtResource("6_k2pe2")
 centered = false
 
-[node name="Bottom" type="HBoxContainer" parent="."]
+[node name="Stats" type="HBoxContainer" parent="VBContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Atk" type="TextureRect" parent="Bottom"]
+[node name="AtkTexture" type="TextureRect" parent="VBContainer/Stats"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -120,7 +132,7 @@ size_flags_vertical = 4
 texture = ExtResource("4_nku8d")
 expand_mode = 1
 
-[node name="AtkLabel" type="Label" parent="Bottom/Atk"]
+[node name="AtkLabel" type="Label" parent="VBContainer/Stats/AtkTexture"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 1
 anchors_preset = 8
@@ -140,7 +152,7 @@ label_settings = SubResource("LabelSettings_y6bn4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HP" type="TextureRect" parent="Bottom"]
+[node name="HPTexture" type="TextureRect" parent="VBContainer/Stats"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -148,7 +160,7 @@ size_flags_vertical = 4
 texture = ExtResource("4_w7p1y")
 expand_mode = 1
 
-[node name="HPLabel" type="Label" parent="Bottom/HP"]
+[node name="HPLabel" type="Label" parent="VBContainer/Stats/HPTexture"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 1
 anchors_preset = 8

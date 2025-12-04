@@ -12,6 +12,8 @@ extends Resource
 @export_range(1, 3) var level:int=1
 @export_range(0, 100, 1, "or_greater") var xp:int=0
 
+@export var is_enemy:bool=false
+
 #@export var item: Item
 
 signal attacked(damage)

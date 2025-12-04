@@ -1,6 +1,6 @@
 extends Control
-@onready var pet_buy_1: Button = $VBoxContainer/Shop/PetShop/PetBuy1
+@onready var buy_pet: Button = $VBoxContainer/Shop/BuyPet
 
 
 func _ready() -> void:
-	pet_buy_1.grab_focus()
+	buy_pet.grab_focus()

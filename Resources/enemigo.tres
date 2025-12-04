@@ -9,4 +9,5 @@ name = "Soldier"
 sprite = ExtResource("2_oj5rj")
 atk = 4
 hp = 11
+is_enemy = true
 metadata/_custom_type_script = "uid://co38vrucneg53"
