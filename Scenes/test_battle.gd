@@ -25,12 +25,9 @@ func fill_list(team) -> Array:
 		if child.is_in_group("Toy"):
 			connect_signals(child)
 			child.toy.ready()
-			if team == player_team:
-				#list.push_front(child)
-				list.push_back(child)
-			elif team == enemy_team:
-				list.push_back(child)
-				child.flip_sprite()
+			list.push_back(child)
+			if team == enemy_team:
+				child.spriteNode.flip_h = true
 	return list
 
 func connect_signals(pet)->void:

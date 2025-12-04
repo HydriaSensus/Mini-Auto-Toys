@@ -24,8 +24,8 @@ func _ready() -> void:
 		#if toy.ability:
 			#toy.ability.pet_node=self
 
-func flip_sprite()->void:
-		spriteNode.flip_h =!spriteNode.flip_h
+#func flip_sprite()->void:
+		#spriteNode.flip_h =!spriteNode.flip_h
 
 
 #func _process(_delta: float) -> void:
