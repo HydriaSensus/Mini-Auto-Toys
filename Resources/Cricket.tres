@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ToyStats" load_steps=4 format=3 uid="uid://drfjtmr28cmsj"]
+
+[ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_0b6nq"]
+[ext_resource type="Script" uid="uid://b23o4a8gtrsn2" path="res://Resources/Abilities/CricketAbility.gd" id="1_51gau"]
+
+[sub_resource type="Resource" id="Resource_iyb8n"]
+resource_local_to_scene = true
+script = ExtResource("1_51gau")
+trigger = 3
+metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_0b6nq")
+name = "Cricket"
+ability = SubResource("Resource_iyb8n")
+atk = null
+hp = 3
+tier = null
+level = null
+xp = null
+metadata/_custom_type_script = "uid://co38vrucneg53"

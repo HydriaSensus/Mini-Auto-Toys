@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ToyStats" load_steps=4 format=3 uid="uid://cjgirnantoqe0"]
+
+[ext_resource type="Script" uid="uid://bvt1ljk7iwisn" path="res://Resources/Abilities/SilkmothAbility.gd" id="1_1mob5"]
+[ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_ibunq"]
+
+[sub_resource type="Resource" id="Resource_2u62q"]
+script = ExtResource("1_1mob5")
+trigger = 7
+ability_limit = 2
+metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
+
+[resource]
+script = ExtResource("1_ibunq")
+name = "Silkmoth"
+ability = SubResource("Resource_2u62q")
+atk = 3
+metadata/_custom_type_script = "uid://co38vrucneg53"
