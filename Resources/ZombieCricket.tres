@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="ToyStats" load_steps=2 format=3 uid="uid://uirqd1t2jb3f"]
+[gd_resource type="Resource" script_class="ToyStats" load_steps=3 format=3 uid="uid://uirqd1t2jb3f"]
 
+[ext_resource type="Texture2D" uid="uid://r5j1e283gahr" path="res://sprites/Pirate.png" id="2_logy4"]
 [ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="2_unag3"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_unag3")
 name = "ZombieCricket"
-atk = null
-tier = null
-xp = null
+sprite = ExtResource("2_logy4")
 metadata/_custom_type_script = "uid://co38vrucneg53"

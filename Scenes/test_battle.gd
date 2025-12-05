@@ -51,7 +51,7 @@ func _on_battle_start()->void:
 		return a.get_parent().name == "player_team"
 	)
 	for node:Node in battle_start_list:
-		node.toy.use_ability()
+		node.toy.ability.effect()
 		print(node.toy.name,node.toy.atk,node.get_parent().name)
 	
 

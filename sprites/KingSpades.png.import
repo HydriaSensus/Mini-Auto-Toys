@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r5j1e283gahr"
-path="res://.godot/imported/Pirate.png-bc7585e005f3cda53348d30ee1c5b2a7.ctex"
+uid="uid://dq1r0rq6dm517"
+path="res://.godot/imported/KingSpades.png-e2a5a9bdeeb8ac160bdf9df9b517e97e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Pirate.png"
-dest_files=["res://.godot/imported/Pirate.png-bc7585e005f3cda53348d30ee1c5b2a7.ctex"]
+source_file="res://sprites/KingSpades.png"
+dest_files=["res://.godot/imported/KingSpades.png-e2a5a9bdeeb8ac160bdf9df9b517e97e.ctex"]
 
 [params]
 

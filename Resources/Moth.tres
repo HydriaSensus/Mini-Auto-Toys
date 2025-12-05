@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ToyStats" load_steps=5 format=3 uid="uid://cmat5da8fw83b"]
+
+[ext_resource type="Script" uid="uid://cc13km1i7umq5" path="res://Resources/Abilities/MothAbility.gd" id="1_d41hd"]
+[ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="2_d41hd"]
+[ext_resource type="Texture2D" uid="uid://dq1r0rq6dm517" path="res://sprites/KingSpades.png" id="3_d41hd"]
+
+[sub_resource type="Resource" id="Resource_u7vbq"]
+resource_local_to_scene = true
+script = ExtResource("1_d41hd")
+trigger = 1
+metadata/_custom_type_script = "uid://cc13km1i7umq5"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_d41hd")
+name = "Moth"
+sprite = ExtResource("3_d41hd")
+ability = SubResource("Resource_u7vbq")
+hp = 3
+metadata/_custom_type_script = "uid://co38vrucneg53"

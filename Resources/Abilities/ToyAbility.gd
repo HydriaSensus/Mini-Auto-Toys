@@ -1,3 +1,4 @@
+@tool
 class_name ToyAbility
 extends Resource
 
@@ -7,10 +8,12 @@ enum TriggerList {TurnEnded, BattleStarted, Hurted, Fainted, KnockOut, FriendSum
 var ability_uses:int = 0
 var pet_node:Node
 
-func effect(name) -> void:
+func _init() -> void:
+	self.resource_local_to_scene = true
+
+func effect() -> void:
 	if ability_limit:
 		if ability_uses >= ability_limit:
 			print("Ability didn't activate due to limit")
 			return
 		ability_uses +=1
-	print(name,"Ability activated on ",TriggerList.find_key(trigger))

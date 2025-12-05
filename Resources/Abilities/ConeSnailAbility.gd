@@ -1,8 +1,9 @@
+@tool
 class_name ConeSnailAbility
 extends ToyAbility
 
-func effect(name) -> void:
-	super(name)
+func effect() -> void:
+	super()
 	var objective = null
 	var parent := pet_node.get_parent()
 	var i := pet_node.get_index()
@@ -10,4 +11,4 @@ func effect(name) -> void:
 		objective = parent.get_child(i + 1)
 		objective.toy.current_hp += 2*pet_node.toy.level
 		objective.hp_label.text = str(objective.toy.current_hp)
-		print("Start of battle → Give the nearest friend behind +{level}*2 health.")
+		print(str("Start of battle → Give the nearest friend behind +",2*pet_node.toy.level," health."))

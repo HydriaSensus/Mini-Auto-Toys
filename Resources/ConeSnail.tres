@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bdo76uwqw8udr" path="res://Resources/Abilities/ConeSnailAbility.gd" id="1_1nbws"]
 [ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_lhxdd"]
-[ext_resource type="Texture2D" uid="uid://rqejyquhttrm" path="res://sprites/hp.png" id="3_dy803"]
+[ext_resource type="Texture2D" uid="uid://07cy1ooofjwd" path="res://sprites/Operation.png" id="3_dy803"]
 
 [sub_resource type="Resource" id="Resource_dy803"]
+resource_local_to_scene = true
 script = ExtResource("1_1nbws")
 trigger = 1
 metadata/_custom_type_script = "uid://bdo76uwqw8udr"

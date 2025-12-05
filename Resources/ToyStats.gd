@@ -1,3 +1,4 @@
+@tool
 class_name ToyStats
 extends Resource
 
@@ -17,11 +18,13 @@ extends Resource
 var pet_node:Node
 
 signal attacked(damage)
+signal hurted
 signal fainted
 
 var current_hp:int = 0
 
-
+func _init() -> void:
+	self.resource_local_to_scene = true
 
 func ready() -> void:
 	current_hp = hp
@@ -36,7 +39,8 @@ func hurt(owner,damage):
 	owner.hp_label.text = str(current_hp)
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
-			ability.effect(name)
+			ability.effect()
+	hurted.emit()
 	if current_hp <= 0:
 		faint()
 	
@@ -44,8 +48,5 @@ func faint():
 	print(str(name," fainted"))
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Fainted:
-			ability.effect(name)
+			ability.effect()
 	fainted.emit()
-
-func use_ability():
-	ability.effect(name)

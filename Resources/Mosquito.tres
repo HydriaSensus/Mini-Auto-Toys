@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_ewu1j"]
 [ext_resource type="Script" uid="uid://bewisppj8ya1c" path="res://Resources/Abilities/MosquitoAbility.gd" id="1_svxug"]
-[ext_resource type="Texture2D" uid="uid://tofvrpgt6d2g" path="res://sprites/Pirate.png" id="3_rq8sv"]
+[ext_resource type="Texture2D" uid="uid://dx70tur8hxbfg" path="res://sprites/Soldier.png" id="3_rq8sv"]
 
 [sub_resource type="Resource" id="Resource_rq8sv"]
+resource_local_to_scene = true
 script = ExtResource("1_svxug")
 trigger = 1
 metadata/_custom_type_script = "uid://bewisppj8ya1c"

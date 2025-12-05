@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ToyStats" load_steps=4 format=3 uid="uid://drfjtmr28cmsj"]
+[gd_resource type="Resource" script_class="ToyStats" load_steps=5 format=3 uid="uid://drfjtmr28cmsj"]
 
 [ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_0b6nq"]
 [ext_resource type="Script" uid="uid://b23o4a8gtrsn2" path="res://Resources/Abilities/CricketAbility.gd" id="1_51gau"]
+[ext_resource type="Texture2D" uid="uid://tofvrpgt6d2g" path="res://sprites/PirateBarrel.png" id="3_iyb8n"]
 
 [sub_resource type="Resource" id="Resource_iyb8n"]
 resource_local_to_scene = true
@@ -13,10 +14,7 @@ metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
 resource_local_to_scene = true
 script = ExtResource("1_0b6nq")
 name = "Cricket"
+sprite = ExtResource("3_iyb8n")
 ability = SubResource("Resource_iyb8n")
-atk = null
 hp = 3
-tier = null
-level = null
-xp = null
 metadata/_custom_type_script = "uid://co38vrucneg53"
