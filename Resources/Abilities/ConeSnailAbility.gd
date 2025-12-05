@@ -11,4 +11,4 @@ func effect() -> void:
 		objective = parent.get_child(i + 1)
 		objective.toy.current_hp += 2*pet_node.toy.level
 		objective.hp_label.text = str(objective.toy.current_hp)
-		print(str("Start of battle → Give the nearest friend behind +",2*pet_node.toy.level," health."))
+		print(str(pet_node.toy.name,": Start of battle → Give the nearest friend behind +",2*pet_node.toy.level," health."))

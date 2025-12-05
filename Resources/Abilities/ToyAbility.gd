@@ -14,6 +14,6 @@ func _init() -> void:
 func effect() -> void:
 	if ability_limit:
 		if ability_uses >= ability_limit:
-			print("Ability didn't activate due to limit")
+			print(pet_node.toy.name,": Ability didn't activate due to limit")
 			return
 		ability_uses +=1

@@ -4,4 +4,4 @@ extends ToyAbility
 
 func effect() -> void:
 	super()
-	print("Friend ahead hurt → Give it +1 health. Works 2 times per turn.")
+	print(pet_node.toy.name,": Friend ahead hurt → Give it +1 health. Works 2 times per turn.")

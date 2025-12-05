@@ -38,7 +38,7 @@ func connect_signals(pet)->void:
 	#pet.toy.connect("fainted",_on_toy_fainted)
 	if pet.toy.ability.has_signal("summon"):
 		pet.toy.ability.connect("summon",_on_summon)
-		printerr(pet.toy.name,": Señal summon conectada")
+		#print(pet.toy.name,": Señal summon conectada")
 
 func _on_battle_start()->void:
 	battle_start_list.sort_custom(func(a, b):
@@ -52,14 +52,18 @@ func _on_battle_start()->void:
 	)
 	for node:Node in battle_start_list:
 		node.toy.ability.effect()
-		print(node.toy.name,node.toy.atk,node.get_parent().name)
+		#print(node.toy.name,node.toy.atk,node.get_parent().name)
 	
 
-func _on_summon(pet,summoner_index)->void:
+func _on_summon(pet,summoner_team,summoner_index)->void:
+	var team = summoner_team
+	var list = player_list
 	var summon = UI_PET.instantiate()
-	player_list.insert(summoner_index,summon)
-	player_team.add_child(summon,true)
-	player_team.move_child(summon,summoner_index)
+	if team == enemy_team:
+		list = enemy_list
+	list.insert(summoner_index,summon)
+	team.add_child(summon,true)
+	team.move_child(summon,summoner_index)
 	summon.toy = pet
 	summon._ready()
 

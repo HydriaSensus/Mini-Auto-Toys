@@ -11,4 +11,4 @@ func effect() -> void:
 			break
 	objective.toy.atk += 2*pet_node.toy.level
 	objective.atk_label.text = str(objective.toy.atk)
-	print(str("Start of battle → Give front-most friendly pet +",2*pet_node.toy.level," attack."))
+	print(str(pet_node.toy.name,": Start of battle → Give front-most friendly pet +",2*pet_node.toy.level," attack."))
