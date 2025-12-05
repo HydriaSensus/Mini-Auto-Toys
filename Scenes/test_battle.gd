@@ -8,6 +8,7 @@ const UI_PET = preload("uid://bcx5wbef18ma4")
 
 var player_list:Array
 var enemy_list:Array
+var battle_start_list:Array
 
 #signal attack
 
@@ -23,6 +24,8 @@ func fill_list(team) -> Array:
 	for child:Node in team.get_children():
 		#if child is VBoxContainer:
 		if child.is_in_group("Toy"):
+			if child.toy.ability.trigger == child.toy.ability.TriggerList.BattleStarted:
+				battle_start_list.push_back(child)
 			connect_signals(child)
 			child.toy.ready()
 			list.push_back(child)
@@ -37,6 +40,21 @@ func connect_signals(pet)->void:
 		pet.toy.ability.connect("summon",_on_summon)
 		printerr(pet.toy.name,": Señal summon conectada")
 
+func _on_battle_start()->void:
+	battle_start_list.sort_custom(func(a, b):
+		if a.toy.atk != b.toy.atk:
+			return a.toy.atk > b.toy.atk
+		# Desempate 1: index dentro de su padre
+		if a.get_index() != b.get_index():
+			return a.get_index() > b.get_index()  # mayor index primero
+		# Desempate 2: prioridad por equipo
+		return a.get_parent().name == "player_team"
+	)
+	for node:Node in battle_start_list:
+		node.toy.use_ability()
+		print(node.toy.name,node.toy.atk,node.get_parent().name)
+	
+
 func _on_summon(pet,summoner_index)->void:
 	var summon = UI_PET.instantiate()
 	player_list.insert(summoner_index,summon)
@@ -48,6 +66,7 @@ func _on_summon(pet,summoner_index)->void:
 
 func start_battle():
 	print("Battle starts")
+	_on_battle_start()
 	print(player_list[0].toy.current_hp)
 	print(enemy_list[0].toy.current_hp)
 	turn_timer.start()

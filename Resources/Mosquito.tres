@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ToyStats" load_steps=4 format=3 uid="uid://urfsblqr2ebl"]
+[gd_resource type="Resource" script_class="ToyStats" load_steps=5 format=3 uid="uid://urfsblqr2ebl"]
 
 [ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_ewu1j"]
 [ext_resource type="Script" uid="uid://bewisppj8ya1c" path="res://Resources/Abilities/MosquitoAbility.gd" id="1_svxug"]
+[ext_resource type="Texture2D" uid="uid://tofvrpgt6d2g" path="res://sprites/Pirate.png" id="3_rq8sv"]
 
 [sub_resource type="Resource" id="Resource_rq8sv"]
 script = ExtResource("1_svxug")
@@ -12,6 +13,7 @@ metadata/_custom_type_script = "uid://bewisppj8ya1c"
 resource_local_to_scene = true
 script = ExtResource("1_ewu1j")
 name = "Mosquito"
+sprite = ExtResource("3_rq8sv")
 ability = SubResource("Resource_rq8sv")
 atk = 2
 hp = 2
