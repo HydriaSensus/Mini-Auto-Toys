@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://byokweh306lna"]
+[gd_scene load_steps=28 format=3 uid="uid://byokweh306lna"]
 
 [ext_resource type="Script" uid="uid://dmhvj7nh2ivaa" path="res://Scenes/test_battle.gd" id="1_6gaiu"]
 [ext_resource type="Texture2D" uid="uid://inmca152t1bp" path="res://sprites/Game Boy Advance - Final Fantasy 1_ Dawn of Souls - Miscellaneous - Battle Backgrounds.png" id="2_6gaiu"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://crlcrhp7h24pe" path="res://sprites/Cleric.png" id="6_0uy25"]
 [ext_resource type="Texture2D" uid="uid://dx70tur8hxbfg" path="res://sprites/Soldier.png" id="7_mqx8m"]
 [ext_resource type="Script" uid="uid://b23o4a8gtrsn2" path="res://Resources/Abilities/CricketAbility.gd" id="8_jws7u"]
-[ext_resource type="Resource" uid="uid://urfsblqr2ebl" path="res://Resources/Mosquito.tres" id="11_2mqp7"]
+[ext_resource type="Texture2D" uid="uid://tofvrpgt6d2g" path="res://sprites/Pirate.png" id="9_0uy25"]
+[ext_resource type="Resource" uid="uid://che55albpsrqu" path="res://Resources/ConeSnail.tres" id="10_ddgd5"]
 [ext_resource type="Resource" uid="uid://cvj5meur2dhwg" path="res://Resources/Bluebird.tres" id="12_5uxge"]
+[ext_resource type="Script" uid="uid://bewisppj8ya1c" path="res://Resources/Abilities/MosquitoAbility.gd" id="12_8jt4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0hm8"]
 atlas = ExtResource("2_6gaiu")
@@ -21,51 +23,34 @@ region = Rect2(250, 537, 240, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mbdtw"]
 
-[sub_resource type="Resource" id="Resource_2mqp7"]
+[sub_resource type="Resource" id="Resource_ddgd5"]
 resource_local_to_scene = true
 script = ExtResource("5_0uy25")
 trigger = 7
 metadata/_custom_type_script = "uid://dqt44o7ry2l3"
 
-[sub_resource type="Resource" id="Resource_5uxge"]
+[sub_resource type="Resource" id="Resource_8jt4i"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Cleric"
 sprite = ExtResource("6_0uy25")
-ability = SubResource("Resource_2mqp7")
+ability = SubResource("Resource_ddgd5")
 atk = 5
 hp = 16
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_ddgd5"]
+[sub_resource type="Resource" id="Resource_sss1k"]
 resource_local_to_scene = true
 script = ExtResource("8_jws7u")
 trigger = 3
 metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
 
-[sub_resource type="Resource" id="Resource_8jt4i"]
-resource_local_to_scene = true
-script = ExtResource("5_mqx8m")
-name = "Cricket"
-ability = SubResource("Resource_ddgd5")
-hp = 3
-metadata/_custom_type_script = "uid://co38vrucneg53"
-
-[sub_resource type="Resource" id="Resource_sss1k"]
-resource_local_to_scene = true
-script = ExtResource("5_0uy25")
-trigger = 1
-metadata/_custom_type_script = "uid://dqt44o7ry2l3"
-
 [sub_resource type="Resource" id="Resource_yp3h7"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Soldier"
-sprite = ExtResource("7_mqx8m")
+name = "Cricket"
 ability = SubResource("Resource_sss1k")
-atk = 4
-hp = 11
-tier = 2
+hp = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
 [sub_resource type="Resource" id="Resource_tw5w3"]
@@ -82,6 +67,38 @@ sprite = ExtResource("7_mqx8m")
 ability = SubResource("Resource_tw5w3")
 atk = 4
 hp = 11
+tier = 2
+metadata/_custom_type_script = "uid://co38vrucneg53"
+
+[sub_resource type="Resource" id="Resource_p7pkm"]
+resource_local_to_scene = true
+script = ExtResource("5_0uy25")
+trigger = 1
+metadata/_custom_type_script = "uid://dqt44o7ry2l3"
+
+[sub_resource type="Resource" id="Resource_1lgi8"]
+resource_local_to_scene = true
+script = ExtResource("5_mqx8m")
+name = "Soldier"
+sprite = ExtResource("7_mqx8m")
+ability = SubResource("Resource_p7pkm")
+atk = 4
+hp = 11
+metadata/_custom_type_script = "uid://co38vrucneg53"
+
+[sub_resource type="Resource" id="Resource_rq8sv"]
+script = ExtResource("12_8jt4i")
+trigger = 1
+metadata/_custom_type_script = "uid://bewisppj8ya1c"
+
+[sub_resource type="Resource" id="Resource_skxg5"]
+resource_local_to_scene = true
+script = ExtResource("5_mqx8m")
+name = "Mosquito"
+sprite = ExtResource("9_0uy25")
+ability = SubResource("Resource_rq8sv")
+atk = 2
+hp = 2
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
 [node name="Control" type="Control"]
@@ -153,19 +170,19 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
 [node name="Player_Pet1" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_5uxge")
+toy = SubResource("Resource_8jt4i")
 
 [node name="Player_Pet2" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_8jt4i")
+toy = SubResource("Resource_yp3h7")
 
 [node name="Player_Pet3" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_yp3h7")
+toy = ExtResource("10_ddgd5")
 
-[node name="Enemy_Pet5" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
+[node name="Player_Pet4" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = ExtResource("12_5uxge")
+toy = SubResource("Resource_ctw87")
 
 [node name="EnemyTeam" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -182,11 +199,11 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
 [node name="Enemy_Pet1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_ctw87")
+toy = SubResource("Resource_1lgi8")
 
 [node name="Enemy_Pet2" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = ExtResource("11_2mqp7")
+toy = SubResource("Resource_skxg5")
 
 [node name="Enemy_Pet3" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
