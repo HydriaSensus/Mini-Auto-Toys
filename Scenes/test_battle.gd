@@ -39,6 +39,8 @@ func connect_signals(pet)->void:
 	if pet.toy.ability.has_signal("summon"):
 		pet.toy.ability.connect("summon",_on_summon)
 		#print(pet.toy.name,": Señal summon conectada")
+	if pet.toy.ability.has_signal("damage"):
+		pet.toy.ability.connect("damage",_on_damage_ability)
 
 func _on_battle_start()->void:
 	battle_start_list.sort_custom(func(a, b):
@@ -106,9 +108,9 @@ func resolve_turn()-> void:
 func _on_turn_timer_timeout() -> void:
 	print()
 	print(player_list[0].toy.name," attacks!")
-	enemy_list[0].toy.hurt(enemy_list[0],player_list[0].toy.atk)
+	enemy_list[0].toy.hurt(player_list[0].toy.atk)
 	print(enemy_list[0].toy.name," attacks!")
-	player_list[0].toy.hurt(player_list[0],enemy_list[0].toy.atk)
+	player_list[0].toy.hurt(enemy_list[0].toy.atk)
 	if enemy_list[0].toy.current_hp <=0:
 		enemy_list.pop_at(0).queue_free()
 		print("enemigo fuera de lista")
@@ -116,6 +118,11 @@ func _on_turn_timer_timeout() -> void:
 		player_list.pop_at(0).queue_free()
 		print("jugador fuera de lista")
 	resolve_turn()
+
+func _on_damage_ability(value:int,objective_team:Node,objective_index) -> void:
+	if !objective_index:
+		objective_index = randi_range(1,objective_team.get_child_count()-1)
+	objective_team.get_children()[objective_index].toy.hurt(value)
 
 	#Summon
 	#var pos=4

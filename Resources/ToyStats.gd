@@ -33,10 +33,10 @@ func ready() -> void:
 func attack():
 	attacked.emit(atk)
 
-func hurt(owner,damage):
+func hurt(damage):
 	current_hp -= damage
 	print(str(name," took ",damage," damage. HP left: ",current_hp))
-	owner.hp_label.text = str(current_hp)
+	pet_node.hp_label.text = str(current_hp)
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
 			ability.effect()
