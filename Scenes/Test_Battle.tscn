@@ -439,5 +439,25 @@ toggle_mode = true
 shortcut = SubResource("Shortcut_745tt")
 text = "Auto mode"
 
+[node name="InstructionsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -26.0
+offset_right = -10.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("17_yp3h7")
+theme_override_font_sizes/font_size = 8
+text = "Z: Play turn     A: Toggle Auto mode
+Spacebar: Reset round"
+
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
 [connection signal="toggled" from="AutoModeButton" to="." method="_on_auto_mode_button_toggled"]
