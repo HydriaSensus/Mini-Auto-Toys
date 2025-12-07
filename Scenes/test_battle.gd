@@ -14,12 +14,18 @@ signal toy_hurted(team,index)
 const DAMAGE_INDICATOR = preload("uid://b0geur5as2gwr")
 @onready var atk_anim: AnimatedSprite2D = $CenterContainer/AtkAnim
 
+@onready var battle_info: RichTextLabel = $BattleInfoPanel/MarginContainer/BattleInfoText
+signal printed(text:String)
+
+var auto_mode:bool=false
+
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		get_tree().reload_current_scene()
 
 func _ready() -> void:
 	print("ready")
+	self.connect("printed", Callable(battle_info, "_on_printed"))
 	player_list = fill_list(player_team)
 	enemy_list = fill_list(enemy_team)
 	start_battle()
@@ -44,6 +50,8 @@ func connect_signals(pet)->void:
 	pet.toy.connect("fainted",_on_toy_fainted)
 	
 	if pet.toy.ability:
+		pet.toy.ability.connect("printed", Callable(battle_info, "_on_printed"))
+		
 		if pet.toy.ability.has_signal("summon"):
 			pet.toy.ability.connect("summon",_on_summon)
 			#print(pet.toy.toy_name,": Señal summon conectada")
@@ -67,6 +75,7 @@ func _on_battle_start()->void:
 	)
 	for node:Node in battle_start_list:
 		node.toy.ability.effect()
+		await get_tree().create_timer(1).timeout 
 		#print(node.toy.toy_name,node.toy.atk,node.get_parent().name)
 
 
@@ -83,24 +92,42 @@ func _on_summon(pet,summoner_team,summoner_index)->void:
 	summon._ready()
 	connect_signals(summon)
 
+func await_z_press() -> void:
+	while not Input.is_action_just_released("z_pressed"):
+		await get_tree().process_frame
 
 func start_battle():
 	print("Battle starts")
-	_on_battle_start()
+	#_on_battle_start()
+	if !auto_mode:
+		await await_z_press() 
+	await _on_battle_start()
 	print(player_list[0].toy.current_hp)
 	print(enemy_list[0].toy.current_hp)
-	turn_timer.start()
+	
+	if auto_mode:
+		turn_timer.start(1.5)
+	else:
+		turn_timer.start(0.1)
 
 
 func turn_resolution()-> void:
 	if player_list.size() > 0 and enemy_list.size() > 0:
-		turn_timer.start()
+		if auto_mode:
+			turn_timer.start(1.5)
+		else:
+			await await_z_press()
+			turn_timer.start(0.1)
 	else:
 		if player_list.size() > enemy_list.size():
 			print("WIN")
+			printed.emit("WIN")
 		elif player_list.size() < enemy_list.size():
 			print("LOSS")
-		else: print("DRAW")
+			printed.emit("LOSS")
+		else:
+			print("DRAW")
+			printed.emit("DRAW")
 
 
 func _on_turn_timer_timeout() -> void:
@@ -113,20 +140,25 @@ func _on_turn_timer_timeout() -> void:
 		atk_anim.frame=0
 		atk_anim.play("default",2)
 		print(player_name," attacks!")
+		printed.emit(str(player_name," attacks, ", enemy_name," recieved ",player_atk," damage!"))
 		enemy_list[0].toy.hurt(player_atk)
 		print(enemy_name," attacks!")
+		printed.emit(str(enemy_name," attacks, ", player_name," recieved ",enemy_atk," damage!"))
 		player_list[0].toy.hurt(enemy_atk)
+		
 	turn_resolution()
 
 func _on_toy_hurted(toy_node:Node,damage:int)->void:
 	toy_hurted.emit(toy_node.get_parent(),toy_node.get_index())
 	var display:Label = DAMAGE_INDICATOR.instantiate()
 	get_tree().current_scene.add_child(display)
+	display.modulate=Color.RED
 	display.text = str(-damage)
 	display.global_position = toy_node.global_position+Vector2(12,32)
 	display.animate_pop()
 
 func _on_toy_fainted(toy_node)->void:
+	printed.emit(str(toy_node.toy.toy_name," fainted!"))
 	player_list.erase(toy_node)
 	enemy_list.erase(toy_node)
 	toy_node.queue_free()
@@ -142,3 +174,9 @@ func _on_damage_ability(value:int,objective_team:Node,objective_index) -> void:
 	if !objective_index:
 		objective_index = randi_range(1,objective_team.get_child_count()-1)
 	objective_team.get_children()[objective_index].toy.hurt(value)
+
+
+func _on_auto_mode_button_toggled(toggled_on: bool) -> void:
+	auto_mode=toggled_on
+	#if auto_mode:
+		#turn_timer.start()

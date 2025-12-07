@@ -8,7 +8,8 @@ signal summon(pet,summoner_team,summoner_index)
 func effect():
 	super()
 	var stats = toy_node.toy.level
-	print(toy_node.toy.toy_name,": Faint → Summon one ",stats,"/",stats," Zombie Cricket.")
+	print(toy_node.toy.toy_name,": Faint → Summon one ",stats,"/",stats," ",zombie_cricket.toy_name)
+	printed.emit(str(toy_node.toy.toy_name,": Faint → Summon one ",stats,"/",stats," ",zombie_cricket.toy_name))
 	zombie_cricket.level=stats
 	zombie_cricket.atk=stats
 	zombie_cricket.hp=stats

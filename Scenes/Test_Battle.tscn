@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://byokweh306lna"]
+[gd_scene load_steps=54 format=3 uid="uid://byokweh306lna"]
 
 [ext_resource type="Script" uid="uid://dmhvj7nh2ivaa" path="res://Scenes/test_battle.gd" id="1_6gaiu"]
 [ext_resource type="Texture2D" uid="uid://inmca152t1bp" path="res://sprites/Game Boy Advance - Final Fantasy 1_ Dawn of Souls - Miscellaneous - Battle Backgrounds.png" id="2_6gaiu"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bvt1ljk7iwisn" path="res://Resources/Abilities/SilkmothAbility.gd" id="13_yp3h7"]
 [ext_resource type="Texture2D" uid="uid://dq1r0rq6dm517" path="res://sprites/KingSpades.png" id="15_tw5w3"]
 [ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="17_yp3h7"]
+[ext_resource type="Script" uid="uid://bcgcd8la7vslc" path="res://Scenes/battle_info.gd" id="18_3m3u1"]
 [ext_resource type="Texture2D" uid="uid://bn4ui8h84xauq" path="res://sprites/explosion0000.png" id="18_skxg5"]
 [ext_resource type="Texture2D" uid="uid://moao3y8y3lh5" path="res://sprites/explosion0001.png" id="19_lv60c"]
 [ext_resource type="Texture2D" uid="uid://djmvqf1cvj3gf" path="res://sprites/explosion0002.png" id="20_3m3u1"]
@@ -32,96 +33,50 @@ region = Rect2(250, 537, 240, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mbdtw"]
 
-[sub_resource type="Resource" id="Resource_yp3h7"]
+[sub_resource type="Resource" id="Resource_lv60c"]
 resource_local_to_scene = true
 script = ExtResource("8_jws7u")
 trigger = 3
 metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
 
-[sub_resource type="Resource" id="Resource_tw5w3"]
+[sub_resource type="Resource" id="Resource_3m3u1"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 toy_name = "Barrel Pirate"
 sprite = ExtResource("9_0uy25")
-ability = SubResource("Resource_yp3h7")
+ability = SubResource("Resource_lv60c")
 hp = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_ctw87"]
+[sub_resource type="Resource" id="Resource_745tt"]
 resource_local_to_scene = true
 script = ExtResource("10_8jt4i")
 trigger = 1
 metadata/_custom_type_script = "uid://bdo76uwqw8udr"
 
-[sub_resource type="Resource" id="Resource_p7pkm"]
+[sub_resource type="Resource" id="Resource_tn0pp"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 toy_name = "Operation"
 sprite = ExtResource("10_sss1k")
-ability = SubResource("Resource_ctw87")
+ability = SubResource("Resource_745tt")
 hp = 2
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_1lgi8"]
+[sub_resource type="Resource" id="Resource_vir3w"]
 resource_local_to_scene = true
 script = ExtResource("12_8jt4i")
 trigger = 1
 metadata/_custom_type_script = "uid://bewisppj8ya1c"
 
-[sub_resource type="Resource" id="Resource_skxg5"]
+[sub_resource type="Resource" id="Resource_t76uo"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 toy_name = "Soldier"
 sprite = ExtResource("7_mqx8m")
-ability = SubResource("Resource_1lgi8")
+ability = SubResource("Resource_vir3w")
 atk = 2
 hp = 2
-metadata/_custom_type_script = "uid://co38vrucneg53"
-
-[sub_resource type="Resource" id="Resource_lv60c"]
-resource_local_to_scene = true
-script = ExtResource("13_yp3h7")
-trigger = 7
-ability_limit = 2
-metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
-
-[sub_resource type="Resource" id="Resource_3m3u1"]
-resource_local_to_scene = true
-script = ExtResource("5_mqx8m")
-toy_name = "Cleric"
-sprite = ExtResource("6_0uy25")
-ability = SubResource("Resource_lv60c")
-atk = 3
-metadata/_custom_type_script = "uid://co38vrucneg53"
-
-[sub_resource type="Resource" id="Resource_745tt"]
-resource_local_to_scene = true
-script = ExtResource("12_tw5w3")
-trigger = 1
-metadata/_custom_type_script = "uid://cc13km1i7umq5"
-
-[sub_resource type="Resource" id="Resource_tn0pp"]
-resource_local_to_scene = true
-script = ExtResource("5_mqx8m")
-toy_name = "Spades King"
-sprite = ExtResource("15_tw5w3")
-ability = SubResource("Resource_745tt")
-hp = 3
-metadata/_custom_type_script = "uid://co38vrucneg53"
-
-[sub_resource type="Resource" id="Resource_vir3w"]
-resource_local_to_scene = true
-script = ExtResource("12_tw5w3")
-trigger = 1
-metadata/_custom_type_script = "uid://cc13km1i7umq5"
-
-[sub_resource type="Resource" id="Resource_t76uo"]
-resource_local_to_scene = true
-script = ExtResource("5_mqx8m")
-toy_name = "Spades King (enemy)"
-sprite = ExtResource("15_tw5w3")
-ability = SubResource("Resource_vir3w")
-hp = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
 [sub_resource type="Resource" id="Resource_2vgxr"]
@@ -134,7 +89,7 @@ metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
 [sub_resource type="Resource" id="Resource_6xfkd"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-toy_name = "Cleric (enemy)"
+toy_name = "Cleric"
 sprite = ExtResource("6_0uy25")
 ability = SubResource("Resource_2vgxr")
 atk = 3
@@ -142,47 +97,93 @@ metadata/_custom_type_script = "uid://co38vrucneg53"
 
 [sub_resource type="Resource" id="Resource_1faib"]
 resource_local_to_scene = true
-script = ExtResource("8_jws7u")
-trigger = 3
-metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
+script = ExtResource("12_tw5w3")
+trigger = 1
+metadata/_custom_type_script = "uid://cc13km1i7umq5"
 
 [sub_resource type="Resource" id="Resource_jd26d"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-toy_name = "Barrel Pirate (enemy)"
-sprite = ExtResource("9_0uy25")
+toy_name = "Spades King"
+sprite = ExtResource("15_tw5w3")
 ability = SubResource("Resource_1faib")
 hp = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
 [sub_resource type="Resource" id="Resource_xwjwm"]
 resource_local_to_scene = true
-script = ExtResource("12_8jt4i")
+script = ExtResource("12_tw5w3")
 trigger = 1
-metadata/_custom_type_script = "uid://bewisppj8ya1c"
+metadata/_custom_type_script = "uid://cc13km1i7umq5"
 
 [sub_resource type="Resource" id="Resource_8pkp3"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
+toy_name = "Spades King (enemy)"
+sprite = ExtResource("15_tw5w3")
+ability = SubResource("Resource_xwjwm")
+hp = 3
+metadata/_custom_type_script = "uid://co38vrucneg53"
+
+[sub_resource type="Resource" id="Resource_q21bk"]
+resource_local_to_scene = true
+script = ExtResource("13_yp3h7")
+trigger = 7
+ability_limit = 2
+metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
+
+[sub_resource type="Resource" id="Resource_hke8u"]
+resource_local_to_scene = true
+script = ExtResource("5_mqx8m")
+toy_name = "Cleric (enemy)"
+sprite = ExtResource("6_0uy25")
+ability = SubResource("Resource_q21bk")
+atk = 3
+metadata/_custom_type_script = "uid://co38vrucneg53"
+
+[sub_resource type="Resource" id="Resource_plhao"]
+resource_local_to_scene = true
+script = ExtResource("8_jws7u")
+trigger = 3
+metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
+
+[sub_resource type="Resource" id="Resource_pt32v"]
+resource_local_to_scene = true
+script = ExtResource("5_mqx8m")
+toy_name = "Barrel Pirate (enemy)"
+sprite = ExtResource("9_0uy25")
+ability = SubResource("Resource_plhao")
+hp = 3
+metadata/_custom_type_script = "uid://co38vrucneg53"
+
+[sub_resource type="Resource" id="Resource_l7c6d"]
+resource_local_to_scene = true
+script = ExtResource("12_8jt4i")
+trigger = 1
+metadata/_custom_type_script = "uid://bewisppj8ya1c"
+
+[sub_resource type="Resource" id="Resource_tkkax"]
+resource_local_to_scene = true
+script = ExtResource("5_mqx8m")
 toy_name = "Soldier (enemy)"
 sprite = ExtResource("7_mqx8m")
-ability = SubResource("Resource_xwjwm")
+ability = SubResource("Resource_l7c6d")
 atk = 2
 hp = 2
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_q21bk"]
+[sub_resource type="Resource" id="Resource_3hxfs"]
 resource_local_to_scene = true
 script = ExtResource("10_8jt4i")
 trigger = 1
 metadata/_custom_type_script = "uid://bdo76uwqw8udr"
 
-[sub_resource type="Resource" id="Resource_hke8u"]
+[sub_resource type="Resource" id="Resource_brctw"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 toy_name = "Operation (enemy)"
 sprite = ExtResource("10_sss1k")
-ability = SubResource("Resource_q21bk")
+ability = SubResource("Resource_3hxfs")
 hp = 2
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
@@ -224,6 +225,26 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m3u1"]
+bg_color = Color(0.7, 0.7, 0.7, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_745tt"]
+bg_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+anti_aliasing = false
+
+[sub_resource type="InputEventKey" id="InputEventKey_3m3u1"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="Shortcut" id="Shortcut_745tt"]
+events = [SubResource("InputEventKey_3m3u1")]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -294,23 +315,23 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
 [node name="Player_Toy1" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_tw5w3")
+toy = SubResource("Resource_3m3u1")
 
 [node name="Player_Toy2" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_p7pkm")
+toy = SubResource("Resource_tn0pp")
 
 [node name="Player_Toy3" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_skxg5")
+toy = SubResource("Resource_t76uo")
 
 [node name="Player_Toy4" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_3m3u1")
+toy = SubResource("Resource_6xfkd")
 
 [node name="Player_Toy5" parent="VBoxContainer/PlayerTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_tn0pp")
+toy = SubResource("Resource_jd26d")
 
 [node name="EnemyTeam" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -327,35 +348,32 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
 [node name="Enemy_Toy2" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_t76uo")
+toy = SubResource("Resource_8pkp3")
 
 [node name="Enemy_Toy1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_6xfkd")
+toy = SubResource("Resource_hke8u")
 
 [node name="Enemy_Toy3" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_jd26d")
+toy = SubResource("Resource_pt32v")
 
 [node name="Enemy_Toy4" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_8pkp3")
+toy = SubResource("Resource_tkkax")
 
 [node name="Enemy_Toy5" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
-toy = SubResource("Resource_hke8u")
+toy = SubResource("Resource_brctw")
 
 [node name="BattleInfoPanel" type="Panel" parent="."]
-custom_minimum_size = Vector2(88, 40)
+custom_minimum_size = Vector2(88, 72)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
 offset_left = 16.0
-offset_top = -80.0
+offset_top = 80.0
 offset_right = 104.0
-offset_bottom = -40.0
-grow_vertical = 0
+offset_bottom = 120.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_tw5w3")
 
@@ -374,7 +392,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="BattleInfoText" type="RichTextLabel" parent="BattleInfoPanel/MarginContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/default_color = Color(0.27387273, 0.27387273, 0.27387273, 1)
 theme_override_constants/line_separation = -2
 theme_override_constants/paragraph_separation = 1
 theme_override_fonts/normal_font = ExtResource("17_yp3h7")
@@ -384,6 +402,7 @@ scroll_active = false
 scroll_following = true
 scroll_following_visible_characters = true
 shortcut_keys_enabled = false
+script = ExtResource("18_3m3u1")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -400,4 +419,25 @@ sprite_frames = SubResource("SpriteFrames_yp3h7")
 frame = 5
 speed_scale = 2.0
 
+[node name="AutoModeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 56.0
+offset_right = -56.0
+offset_bottom = 73.0
+grow_horizontal = 0
+focus_mode = 0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("17_yp3h7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_3m3u1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_745tt")
+toggle_mode = true
+shortcut = SubResource("Shortcut_745tt")
+text = "Auto mode"
+
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
+[connection signal="toggled" from="AutoModeButton" to="." method="_on_auto_mode_button_toggled"]
