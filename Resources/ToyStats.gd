@@ -18,8 +18,8 @@ extends Resource
 var pet_node:Node
 
 signal attacked(damage)
-signal hurted
-signal fainted
+signal hurted(node)
+signal fainted(node)
 
 var current_hp:int = 0
 
@@ -40,7 +40,7 @@ func hurt(damage):
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
 			ability.effect()
-	hurted.emit()
+	hurted.emit(pet_node)
 	if current_hp <= 0:
 		faint()
 	
@@ -49,4 +49,4 @@ func faint():
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Fainted:
 			ability.effect()
-	fainted.emit()
+	fainted.emit(pet_node)
