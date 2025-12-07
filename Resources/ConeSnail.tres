@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://bdo76uwqw8udr"
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_lhxdd")
-name = "Cone Snail"
+toy_name = "Operation"
 sprite = ExtResource("3_dy803")
 ability = SubResource("Resource_dy803")
 hp = 2

@@ -20,9 +20,9 @@ func _ready() -> void:
 		level_label.text = str(toy.level)
 		xp_bar.value = toy.xp
 	#	item_sprite.texture =  item.sprite
-		toy.pet_node=self
+		toy.toy_node=self
 		#if toy.ability:
-			#toy.ability.pet_node=self
+			#toy.ability.toy_node=self
 
 #func flip_sprite()->void:
 		#spriteNode.flip_h =!spriteNode.flip_h

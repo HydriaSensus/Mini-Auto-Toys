@@ -2,7 +2,7 @@
 class_name ToyStats
 extends Resource
 
-@export var name:String
+@export var toy_name:String
 @export var sprite:Texture2D
 @export var ability:ToyAbility
 
@@ -15,7 +15,7 @@ extends Resource
 
 #@export var item: Item
 const DAMAGE_MATERIAL = preload("uid://cwe8qlcwai53j")
-var pet_node:Node
+var toy_node:Node
 var current_hp:int = 0
 
 signal attacked(damage)
@@ -29,28 +29,28 @@ func _init() -> void:
 
 func ready() -> void:
 	current_hp = hp
-	ability.pet_node=pet_node
+	ability.toy_node=toy_node
 
 func attack():
 	attacked.emit(atk)
 
 func hurt(damage):
 	current_hp -= damage
-	print(str(name," took ",damage," damage. HP left: ",current_hp))
-	pet_node.hp_label.text = str(current_hp)
-	pet_node.spriteNode.material=DAMAGE_MATERIAL
-	await pet_node.get_tree().create_timer(0.1).timeout
-	pet_node.spriteNode.material=null
+	print(str(toy_name," took ",damage," damage. HP left: ",current_hp))
+	toy_node.hp_label.text = str(current_hp)
+	toy_node.spriteNode.material=DAMAGE_MATERIAL
+	await toy_node.get_tree().create_timer(0.1).timeout
+	toy_node.spriteNode.material=null
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
 			ability.effect()
-	hurted.emit(pet_node,damage)
+	hurted.emit(toy_node,damage)
 	if current_hp <= 0:
 		faint()
 	
 func faint():
-	print(str(name," fainted"))
+	print(str(toy_name," fainted"))
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Fainted:
 			ability.effect()
-	fainted.emit(pet_node)
+	fainted.emit(toy_node)

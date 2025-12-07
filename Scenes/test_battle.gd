@@ -14,7 +14,9 @@ signal toy_hurted(team,index)
 const DAMAGE_INDICATOR = preload("uid://b0geur5as2gwr")
 @onready var atk_anim: AnimatedSprite2D = $CenterContainer/AtkAnim
 
-
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		get_tree().reload_current_scene()
 
 func _ready() -> void:
 	print("ready")
@@ -44,7 +46,7 @@ func connect_signals(pet)->void:
 	if pet.toy.ability:
 		if pet.toy.ability.has_signal("summon"):
 			pet.toy.ability.connect("summon",_on_summon)
-			#print(pet.toy.name,": Señal summon conectada")
+			#print(pet.toy.toy_name,": Señal summon conectada")
 		if pet.toy.ability.has_signal("damage"):
 			pet.toy.ability.connect("damage",_on_damage_ability)
 		
@@ -65,7 +67,7 @@ func _on_battle_start()->void:
 	)
 	for node:Node in battle_start_list:
 		node.toy.ability.effect()
-		#print(node.toy.name,node.toy.atk,node.get_parent().name)
+		#print(node.toy.toy_name,node.toy.atk,node.get_parent().name)
 
 
 func _on_summon(pet,summoner_team,summoner_index)->void:
@@ -104,9 +106,9 @@ func turn_resolution()-> void:
 func _on_turn_timer_timeout() -> void:
 	print()
 	if player_list.size() and enemy_list.size():
-		var player_name = player_list[0].toy.name
+		var player_name = player_list[0].toy.toy_name
 		var player_atk = player_list[0].toy.atk
-		var enemy_name = enemy_list[0].toy.name
+		var enemy_name = enemy_list[0].toy.toy_name
 		var enemy_atk = enemy_list[0].toy.atk
 		atk_anim.frame=0
 		atk_anim.play("default",2)

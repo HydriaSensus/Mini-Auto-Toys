@@ -41,7 +41,7 @@ metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
 [sub_resource type="Resource" id="Resource_tw5w3"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Cricket"
+toy_name = "Barrel Pirate"
 sprite = ExtResource("9_0uy25")
 ability = SubResource("Resource_yp3h7")
 hp = 3
@@ -56,7 +56,7 @@ metadata/_custom_type_script = "uid://bdo76uwqw8udr"
 [sub_resource type="Resource" id="Resource_p7pkm"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Cone Snail"
+toy_name = "Operation"
 sprite = ExtResource("10_sss1k")
 ability = SubResource("Resource_ctw87")
 hp = 2
@@ -71,7 +71,7 @@ metadata/_custom_type_script = "uid://bewisppj8ya1c"
 [sub_resource type="Resource" id="Resource_skxg5"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Mosquito"
+toy_name = "Soldier"
 sprite = ExtResource("7_mqx8m")
 ability = SubResource("Resource_1lgi8")
 atk = 2
@@ -88,7 +88,7 @@ metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
 [sub_resource type="Resource" id="Resource_3m3u1"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Silkmoth"
+toy_name = "Cleric"
 sprite = ExtResource("6_0uy25")
 ability = SubResource("Resource_lv60c")
 atk = 3
@@ -103,7 +103,7 @@ metadata/_custom_type_script = "uid://cc13km1i7umq5"
 [sub_resource type="Resource" id="Resource_tn0pp"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Moth"
+toy_name = "Spades King"
 sprite = ExtResource("15_tw5w3")
 ability = SubResource("Resource_745tt")
 hp = 3
@@ -118,7 +118,7 @@ metadata/_custom_type_script = "uid://cc13km1i7umq5"
 [sub_resource type="Resource" id="Resource_t76uo"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Moth"
+toy_name = "Spades King (enemy)"
 sprite = ExtResource("15_tw5w3")
 ability = SubResource("Resource_vir3w")
 hp = 3
@@ -134,7 +134,7 @@ metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
 [sub_resource type="Resource" id="Resource_6xfkd"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Silkmoth"
+toy_name = "Cleric (enemy)"
 sprite = ExtResource("6_0uy25")
 ability = SubResource("Resource_2vgxr")
 atk = 3
@@ -149,7 +149,7 @@ metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
 [sub_resource type="Resource" id="Resource_jd26d"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Cricket"
+toy_name = "Barrel Pirate (enemy)"
 sprite = ExtResource("9_0uy25")
 ability = SubResource("Resource_1faib")
 hp = 3
@@ -164,7 +164,7 @@ metadata/_custom_type_script = "uid://bewisppj8ya1c"
 [sub_resource type="Resource" id="Resource_8pkp3"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Mosquito"
+toy_name = "Soldier (enemy)"
 sprite = ExtResource("7_mqx8m")
 ability = SubResource("Resource_xwjwm")
 atk = 2
@@ -180,7 +180,7 @@ metadata/_custom_type_script = "uid://bdo76uwqw8udr"
 [sub_resource type="Resource" id="Resource_hke8u"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Cone Snail"
+toy_name = "Operation (enemy)"
 sprite = ExtResource("10_sss1k")
 ability = SubResource("Resource_q21bk")
 hp = 2

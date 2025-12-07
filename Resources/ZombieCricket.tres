@@ -6,6 +6,6 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_unag3")
-name = "ZombieCricket"
+toy_name = "Pirate"
 sprite = ExtResource("2_logy4")
 metadata/_custom_type_script = "uid://co38vrucneg53"

@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ibunq")
-name = "Silkmoth"
+toy_name = "Cleric"
 sprite = ExtResource("3_2u62q")
 ability = SubResource("Resource_2u62q")
 atk = 3

@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://cc13km1i7umq5"
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_d41hd")
-name = "Moth"
+toy_name = "Spades King"
 sprite = ExtResource("3_d41hd")
 ability = SubResource("Resource_u7vbq")
 hp = 3

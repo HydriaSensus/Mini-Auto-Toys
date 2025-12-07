@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://b23o4a8gtrsn2"
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_0b6nq")
-name = "Cricket"
+toy_name = "Barrel Pirate"
 sprite = ExtResource("3_iyb8n")
 ability = SubResource("Resource_iyb8n")
 hp = 3
