@@ -3,7 +3,7 @@ class_name MothAbility
 extends ToyAbility
 var objective:Node = pet_node
 
-func effect() -> void:
+func effect():
 	super()
 	for child:Node in pet_node.get_parent().get_children():
 		if child.is_in_group("Toy"):

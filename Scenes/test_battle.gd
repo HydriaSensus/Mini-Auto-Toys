@@ -9,6 +9,7 @@ var player_list:Array
 var enemy_list:Array
 var battle_start_list:Array
 
+signal toy_hurted(team,index)
 #signal attack
 
 
@@ -22,7 +23,7 @@ func fill_list(team) -> Array:
 	var list:Array
 	for child:Node in team.get_children():
 		if child.is_in_group("Toy"):
-			if child.toy.ability.trigger == child.toy.ability.TriggerList.BattleStarted:
+			if child.toy.ability.trigger == ToyAbility.TriggerList.BattleStarted:
 				battle_start_list.push_back(child)
 			connect_signals(child)
 			child.toy.ready()
@@ -33,9 +34,9 @@ func fill_list(team) -> Array:
 
 func connect_signals(pet)->void:
 	#pet.toy.connect("attacked",_on_toy_attack)
-	#pet.toy.connect("hurted",_on_toy_hurted)
-	if pet.toy.has_signal("fainted"):
-		pet.toy.connect("fainted",_on_toy_fainted)
+	pet.toy.connect("hurted",_on_toy_hurted)
+	#if pet.toy.has_signal("fainted"):
+	pet.toy.connect("fainted",_on_toy_fainted)
 	
 	if pet.toy.ability:
 		if pet.toy.ability.has_signal("summon"):
@@ -43,6 +44,11 @@ func connect_signals(pet)->void:
 			#print(pet.toy.name,": Señal summon conectada")
 		if pet.toy.ability.has_signal("damage"):
 			pet.toy.ability.connect("damage",_on_damage_ability)
+		
+		if pet.toy.ability.trigger == ToyAbility.TriggerList.FriendAheadHurted:
+			var target = pet.toy.ability
+			connect("toy_hurted", Callable(target, "_on_toy_hurted"))
+	
 
 func _on_battle_start()->void:
 	battle_start_list.sort_custom(func(a, b):
@@ -103,6 +109,9 @@ func _on_turn_timer_timeout() -> void:
 	print(enemy_name," attacks!")
 	player_list[0].toy.hurt(enemy_atk)
 	turn_resolution()
+
+func _on_toy_hurted(toy_node:Node)->void:
+	toy_hurted.emit(toy_node.get_parent(),toy_node.get_index())
 
 func _on_toy_fainted(toy_node)->void:
 	player_list.erase(toy_node)

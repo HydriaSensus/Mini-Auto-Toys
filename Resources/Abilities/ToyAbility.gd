@@ -11,9 +11,10 @@ var pet_node:Node
 func _init() -> void:
 	self.resource_local_to_scene = true
 
-func effect() -> void:
+func effect() -> bool:
 	if ability_limit:
 		if ability_uses >= ability_limit:
 			print(pet_node.toy.name,": Ability didn't activate due to limit")
-			return
+			return false
 		ability_uses +=1
+	return true

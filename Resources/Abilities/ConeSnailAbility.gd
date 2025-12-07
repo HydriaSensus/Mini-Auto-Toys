@@ -2,7 +2,7 @@
 class_name ConeSnailAbility
 extends ToyAbility
 
-func effect() -> void:
+func effect():
 	super()
 	var objective = null
 	var parent := pet_node.get_parent()

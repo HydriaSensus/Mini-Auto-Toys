@@ -7,7 +7,7 @@ signal damage(value,objective_team,objective_index)
 var objective_count:int
 var objective_team:Node = null
 
-func effect() -> void:
+func effect():
 	super()
 	objective_count = pet_node.toy.level
 	print(pet_node.toy.name,": Start of battle → Deal 1 damage to ",objective_count," random enemies.")

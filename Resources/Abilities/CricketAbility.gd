@@ -5,7 +5,7 @@ var zombie_cricket = preload("uid://uirqd1t2jb3f")
 
 signal summon(pet,summoner_team,summoner_index)
 
-func effect() -> void:
+func effect():
 	super()
 	var stats = pet_node.toy.level
 	print(pet_node.toy.name,": Faint → Summon one ",stats,"/",stats," Zombie Cricket.")

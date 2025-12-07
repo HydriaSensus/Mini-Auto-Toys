@@ -102,35 +102,35 @@ ability = SubResource("Resource_3m3u1")
 hp = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_tn0pp"]
+[sub_resource type="Resource" id="Resource_t76uo"]
 resource_local_to_scene = true
 script = ExtResource("12_tw5w3")
 trigger = 1
 metadata/_custom_type_script = "uid://cc13km1i7umq5"
 
-[sub_resource type="Resource" id="Resource_vir3w"]
+[sub_resource type="Resource" id="Resource_2vgxr"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
 name = "Moth"
 sprite = ExtResource("15_tw5w3")
-ability = SubResource("Resource_tn0pp")
+ability = SubResource("Resource_t76uo")
 hp = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
-[sub_resource type="Resource" id="Resource_t76uo"]
+[sub_resource type="Resource" id="Resource_tn0pp"]
 resource_local_to_scene = true
-script = ExtResource("12_8jt4i")
-trigger = 1
-metadata/_custom_type_script = "uid://bewisppj8ya1c"
+script = ExtResource("13_yp3h7")
+trigger = 7
+ability_limit = 2
+metadata/_custom_type_script = "uid://bvt1ljk7iwisn"
 
-[sub_resource type="Resource" id="Resource_2vgxr"]
+[sub_resource type="Resource" id="Resource_vir3w"]
 resource_local_to_scene = true
 script = ExtResource("5_mqx8m")
-name = "Mosquito"
-sprite = ExtResource("7_mqx8m")
-ability = SubResource("Resource_t76uo")
-atk = 2
-hp = 2
+name = "Silkmoth"
+sprite = ExtResource("6_0uy25")
+ability = SubResource("Resource_tn0pp")
+atk = 3
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
 [sub_resource type="Resource" id="Resource_6xfkd"]
@@ -195,16 +195,16 @@ wait_time = 1.2999999999999998
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+color = Color(0.7959593, 0.83331347, 0.85465103, 1)
 
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,13 +279,13 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mbdtw")
 
-[node name="Enemy_Toy1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
-layout_mode = 2
-toy = SubResource("Resource_vir3w")
-
 [node name="Enemy_Toy2" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
 toy = SubResource("Resource_2vgxr")
+
+[node name="Enemy_Toy1" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
+layout_mode = 2
+toy = SubResource("Resource_vir3w")
 
 [node name="Enemy_Toy3" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
