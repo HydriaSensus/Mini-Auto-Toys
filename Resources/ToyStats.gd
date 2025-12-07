@@ -14,14 +14,15 @@ extends Resource
 @export_range(0, 100, 1, "or_greater") var xp:int=0
 
 #@export var item: Item
-
+const DAMAGE_MATERIAL = preload("uid://cwe8qlcwai53j")
 var pet_node:Node
+var current_hp:int = 0
 
 signal attacked(damage)
 signal hurted(node)
 signal fainted(node)
 
-var current_hp:int = 0
+
 
 func _init() -> void:
 	self.resource_local_to_scene = true
@@ -37,6 +38,9 @@ func hurt(damage):
 	current_hp -= damage
 	print(str(name," took ",damage," damage. HP left: ",current_hp))
 	pet_node.hp_label.text = str(current_hp)
+	pet_node.spriteNode.material=DAMAGE_MATERIAL
+	await pet_node.get_tree().create_timer(0.1).timeout
+	pet_node.spriteNode.material=null
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
 			ability.effect()
