@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://byokweh306lna"]
+[gd_scene load_steps=42 format=3 uid="uid://byokweh306lna"]
 
 [ext_resource type="Script" uid="uid://dmhvj7nh2ivaa" path="res://Scenes/test_battle.gd" id="1_6gaiu"]
 [ext_resource type="Texture2D" uid="uid://inmca152t1bp" path="res://sprites/Game Boy Advance - Final Fantasy 1_ Dawn of Souls - Miscellaneous - Battle Backgrounds.png" id="2_6gaiu"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cc13km1i7umq5" path="res://Resources/Abilities/MothAbility.gd" id="12_tw5w3"]
 [ext_resource type="Script" uid="uid://bvt1ljk7iwisn" path="res://Resources/Abilities/SilkmothAbility.gd" id="13_yp3h7"]
 [ext_resource type="Texture2D" uid="uid://dq1r0rq6dm517" path="res://sprites/KingSpades.png" id="15_tw5w3"]
+[ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="17_yp3h7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0hm8"]
 atlas = ExtResource("2_6gaiu")
@@ -179,6 +180,19 @@ ability = SubResource("Resource_8pkp3")
 hp = 2
 metadata/_custom_type_script = "uid://co38vrucneg53"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tw5w3"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 2
+shadow_offset = Vector2(0, 2)
+anti_aliasing = false
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -298,5 +312,45 @@ toy = SubResource("Resource_xwjwm")
 [node name="Enemy_Toy5" parent="VBoxContainer/EnemyTeam" instance=ExtResource("4_0uy25")]
 layout_mode = 2
 toy = SubResource("Resource_q21bk")
+
+[node name="BattleInfoPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(88, 40)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -80.0
+offset_right = 104.0
+offset_bottom = -40.0
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tw5w3")
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleInfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+
+[node name="BattleInfoText" type="RichTextLabel" parent="BattleInfoPanel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = -2
+theme_override_constants/paragraph_separation = 1
+theme_override_fonts/normal_font = ExtResource("17_yp3h7")
+theme_override_font_sizes/normal_font_size = 8
+text = "Battle Started"
+scroll_active = false
+scroll_following = true
+scroll_following_visible_characters = true
+shortcut_keys_enabled = false
 
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
