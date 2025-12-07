@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://byokweh306lna"]
+[gd_scene load_steps=49 format=3 uid="uid://byokweh306lna"]
 
 [ext_resource type="Script" uid="uid://dmhvj7nh2ivaa" path="res://Scenes/test_battle.gd" id="1_6gaiu"]
 [ext_resource type="Texture2D" uid="uid://inmca152t1bp" path="res://sprites/Game Boy Advance - Final Fantasy 1_ Dawn of Souls - Miscellaneous - Battle Backgrounds.png" id="2_6gaiu"]
@@ -17,6 +17,12 @@
 [ext_resource type="Script" uid="uid://bvt1ljk7iwisn" path="res://Resources/Abilities/SilkmothAbility.gd" id="13_yp3h7"]
 [ext_resource type="Texture2D" uid="uid://dq1r0rq6dm517" path="res://sprites/KingSpades.png" id="15_tw5w3"]
 [ext_resource type="FontFile" uid="uid://d2dlklq6i8ckj" path="res://Fonts/Tiny5-Regular.ttf" id="17_yp3h7"]
+[ext_resource type="Texture2D" uid="uid://bn4ui8h84xauq" path="res://sprites/explosion0000.png" id="18_skxg5"]
+[ext_resource type="Texture2D" uid="uid://moao3y8y3lh5" path="res://sprites/explosion0001.png" id="19_lv60c"]
+[ext_resource type="Texture2D" uid="uid://djmvqf1cvj3gf" path="res://sprites/explosion0002.png" id="20_3m3u1"]
+[ext_resource type="Texture2D" uid="uid://b56yjj7y5675x" path="res://sprites/explosion0003.png" id="21_745tt"]
+[ext_resource type="Texture2D" uid="uid://ojv553n4gpbe" path="res://sprites/explosion0004.png" id="22_tn0pp"]
+[ext_resource type="Texture2D" uid="uid://cotg0lgcvagax" path="res://sprites/explosion0005.png" id="23_lv60c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0hm8"]
 atlas = ExtResource("2_6gaiu")
@@ -193,6 +199,32 @@ corner_detail = 2
 shadow_offset = Vector2(0, 2)
 anti_aliasing = false
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp3h7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_skxg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_lv60c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_3m3u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_745tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_tn0pp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_lv60c")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -205,7 +237,7 @@ size_flags_vertical = 6
 script = ExtResource("1_6gaiu")
 
 [node name="TurnTimer" type="Timer" parent="."]
-wait_time = 1.2999999999999998
+wait_time = 1.5
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -352,5 +384,20 @@ scroll_active = false
 scroll_following = true
 scroll_following_visible_characters = true
 shortcut_keys_enabled = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AtkAnim" type="AnimatedSprite2D" parent="CenterContainer"]
+sprite_frames = SubResource("SpriteFrames_yp3h7")
+frame = 5
+speed_scale = 2.0
 
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

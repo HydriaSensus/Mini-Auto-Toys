@@ -11,6 +11,9 @@ var battle_start_list:Array
 
 signal toy_hurted(team,index)
 #signal attack
+const DAMAGE_INDICATOR = preload("uid://b0geur5as2gwr")
+@onready var atk_anim: AnimatedSprite2D = $CenterContainer/AtkAnim
+
 
 
 func _ready() -> void:
@@ -100,18 +103,26 @@ func turn_resolution()-> void:
 
 func _on_turn_timer_timeout() -> void:
 	print()
-	var player_name = player_list[0].toy.name
-	var player_atk = player_list[0].toy.atk
-	var enemy_name = enemy_list[0].toy.name
-	var enemy_atk = enemy_list[0].toy.atk
-	print(player_name," attacks!")
-	enemy_list[0].toy.hurt(player_atk)
-	print(enemy_name," attacks!")
-	player_list[0].toy.hurt(enemy_atk)
+	if player_list.size() and enemy_list.size():
+		var player_name = player_list[0].toy.name
+		var player_atk = player_list[0].toy.atk
+		var enemy_name = enemy_list[0].toy.name
+		var enemy_atk = enemy_list[0].toy.atk
+		atk_anim.frame=0
+		atk_anim.play("default",2)
+		print(player_name," attacks!")
+		enemy_list[0].toy.hurt(player_atk)
+		print(enemy_name," attacks!")
+		player_list[0].toy.hurt(enemy_atk)
 	turn_resolution()
 
-func _on_toy_hurted(toy_node:Node)->void:
+func _on_toy_hurted(toy_node:Node,damage:int)->void:
 	toy_hurted.emit(toy_node.get_parent(),toy_node.get_index())
+	var display:Label = DAMAGE_INDICATOR.instantiate()
+	get_tree().current_scene.add_child(display)
+	display.text = str(-damage)
+	display.global_position = toy_node.global_position+Vector2(12,32)
+	display.animate_pop()
 
 func _on_toy_fainted(toy_node)->void:
 	player_list.erase(toy_node)

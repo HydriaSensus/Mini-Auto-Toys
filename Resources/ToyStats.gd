@@ -19,7 +19,7 @@ var pet_node:Node
 var current_hp:int = 0
 
 signal attacked(damage)
-signal hurted(node)
+signal hurted(node,damage)
 signal fainted(node)
 
 
@@ -44,7 +44,7 @@ func hurt(damage):
 	if ability:
 		if ability.trigger == ToyAbility.TriggerList.Hurted:
 			ability.effect()
-	hurted.emit(pet_node)
+	hurted.emit(pet_node,damage)
 	if current_hp <= 0:
 		faint()
 	
