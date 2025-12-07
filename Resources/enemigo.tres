@@ -1,12 +1,21 @@
-[gd_resource type="Resource" script_class="ToyStats" load_steps=3 format=3 uid="uid://12q1io1l3qax"]
+[gd_resource type="Resource" script_class="ToyStats" load_steps=5 format=3 uid="uid://12q1io1l3qax"]
 
+[ext_resource type="Script" uid="uid://dqt44o7ry2l3" path="res://Resources/ToyAbility.gd" id="1_syoaa"]
 [ext_resource type="Script" uid="uid://co38vrucneg53" path="res://Resources/ToyStats.gd" id="1_vdkfy"]
 [ext_resource type="Texture2D" uid="uid://dx70tur8hxbfg" path="res://sprites/Soldier.png" id="2_oj5rj"]
 
+[sub_resource type="Resource" id="Resource_f12dp"]
+resource_local_to_scene = true
+script = ExtResource("1_syoaa")
+trigger = 3
+metadata/_custom_type_script = "uid://dqt44o7ry2l3"
+
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_vdkfy")
 name = "Soldier"
 sprite = ExtResource("2_oj5rj")
+ability = SubResource("Resource_f12dp")
 atk = 4
 hp = 11
 metadata/_custom_type_script = "uid://co38vrucneg53"
